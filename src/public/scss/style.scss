@@ -43,14 +43,32 @@ $main-hover: #341ea7;
     padding: 0;
     box-sizing: border-box;
     outline: none;
+    font-family: sans-serif;
+}
+
+body {
+    position: relative;
+    padding: 15px;
+    min-height: 100vh;
+
+    &.light {
+        background: linear-gradient(165deg, $grayscale-primary 0%, $grayscale-secondary 100%);
+    }
+    &.purple {
+        background: linear-gradient(175deg, $main-primary 0%, $main-secondary 50%);
+    }
 }
 
 a {
     text-decoration: none;
+    transition: 0.2s;
 }
 
-body {
-    padding: 15px;
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 // Imports :

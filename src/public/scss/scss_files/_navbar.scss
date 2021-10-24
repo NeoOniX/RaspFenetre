@@ -1,0 +1,65 @@
+body.light nav {
+    border: 1px solid $main-secondary;
+    background: linear-gradient(94.93deg, $main-secondary 0%, $main-tertiary 42.96%);
+
+    a:hover svg {
+        fill: $grayscale-primary;
+    }
+}
+
+body.purple nav {
+    border: 1px solid $grayscale-primary;
+    background: linear-gradient(94.93deg, $grayscale-primary 0%, $grayscale-secondary 42.96%);
+
+    a:hover svg {
+        fill: $main-secondary;
+    }
+}
+
+nav {
+    @include flexAround;
+
+    position: fixed;
+    z-index: 20;
+    bottom: 15px;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: 75px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.35);
+
+    a {
+        position: relative;
+        height: 25px;
+
+        &.active {
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 7px;
+                height: 7px;
+                background: $contrast-primary;
+                border-radius: 50%;
+                box-shadow: 0 0 5px rgba($color: $contrast-primary, $alpha: 0.25);
+            }
+
+            &:hover svg {
+                fill: $contrast-primary !important;
+            }
+
+            svg {
+                fill: $contrast-primary;
+            }
+        }
+
+        svg {
+            position: relative;
+            height: 25px;
+            fill: $grayscale-tertiary;
+            transition: 0.2s;
+        }
+    }
+}

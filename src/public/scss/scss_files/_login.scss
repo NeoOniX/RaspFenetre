@@ -1,0 +1,141 @@
+#login {
+    width: 100%;
+
+    h1 {
+        @include GilroyBold;
+
+        text-align: center;
+        font-size: 26px;
+        color: $grayscale-primary;
+        margin-bottom: 50px;
+    }
+
+    .userstype {
+        display: grid;
+        row-gap: 15px;
+
+        h2 {
+            @include GilroyMedium;
+
+            font-size: 24px;
+            color: $grayscale-primary;
+        }
+        ul.userslist {
+            list-style: none;
+
+            li {
+                border-radius: 20px;
+                box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.15);
+
+                .informations {
+                    background: $contrast-tertiary;
+                    overflow-wrap: anywhere;
+                    position: relative;
+                    z-index: 2;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 15px;
+                    padding: 15px;
+                    border-radius: 20px;
+                    box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.15);
+                    cursor: pointer;
+                    transition: 0.2s;
+
+                    &:hover,
+                    a.active {
+                        background: $main-primary;
+                    }
+
+                    #logo {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 20px;
+                        border: 1px solid $grayscale-primary;
+                        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+                    }
+                    #pseudo {
+                        @include GilroyMedium;
+
+                        font-size: 22px;
+                        color: $grayscale-primary;
+                    }
+                }
+                form.login {
+                    position: relative;
+                    z-index: 1;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 15px;
+                    padding: 15px;
+                    max-width: 100%;
+                    border-radius: 20px;
+                    background: $contrast-tertiary;
+                    transition: 0.2s;
+
+                    &.active {
+                        border-radius: 0 0 20px 20px;
+                    }
+
+                    .input {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 15px;
+                        background: $grayscale-primary;
+                        padding: 15px;
+                        height: 50px;
+                        width: 100%;
+                        border-radius: 15px;
+                        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.25);
+
+                        input {
+                            @include GilroyLight;
+
+                            border: none;
+                            background: none;
+                            width: 100%;
+                            font-size: 18px;
+                            color: $contrast-secondary;
+
+                            &::placeholder {
+                                color: $grayscale-tertiary;
+                            }
+                        }
+                        button#show_password {
+                            @include flexMid;
+
+                            max-width: 20px;
+                            max-height: 20px;
+
+                            &:hover svg {
+                                fill: $contrast-tertiary;
+                            }
+
+                            svg {
+                                fill: $contrast-secondary;
+                                transition: 0.2s;
+                            }
+                        }
+                    }
+                    button[type="submit"] {
+                        @include flexMid;
+
+                        border-radius: 50%;
+                        border: 1px solid $grayscale-primary;
+                        min-width: 40px;
+                        height: 40px;
+                        transition: 0.1s;
+
+                        &:hover {
+                            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+                        }
+
+                        svg {
+                            fill: $grayscale-primary;
+                            transform: translateX(1px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
