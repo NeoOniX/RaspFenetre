@@ -63,3 +63,23 @@ nav {
         }
     }
 }
+
+// Responsive :
+@media screen and (min-width: 768px) {
+    nav {
+        width: 75px;
+        height: calc(100% - 30px);
+        flex-direction: column;
+
+        a {
+            &.active::before {
+                top: 50%;
+                left: -105%;
+                transform: translate(50%, -50%);
+                width: 7.5px;
+                height: 50px;
+                border-radius: 10px 10px;
+            }
+        }
+    }
+}

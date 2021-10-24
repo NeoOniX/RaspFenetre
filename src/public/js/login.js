@@ -1,4 +1,16 @@
-// Show password :
+// Show password input :
+const userListElements = document.querySelectorAll("#userlistelement");
+
+userListElements.forEach((userListElement) =>
+    userListElement.querySelector(".informations").addEventListener("click", () => {
+        if (!userListElement.classList.contains("active")) {
+            document.querySelectorAll("#userlistelement").forEach((e) => e.classList.remove("active"));
+        }
+        userListElement.classList.toggle("active");
+    })
+);
+
+// Show & Hide password :
 const showPasswordBtns = document.querySelectorAll("#show_password");
 
 showPasswordBtns.forEach((showPasswordBtn) =>

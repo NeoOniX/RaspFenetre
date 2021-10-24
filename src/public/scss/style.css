@@ -129,6 +129,26 @@ nav a svg {
   transition: 0.2s;
 }
 
+@media screen and (min-width: 768px) {
+  nav {
+    width: 75px;
+    height: calc(100% - 30px);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  nav a.active::before {
+    top: 50%;
+    left: -105%;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+    width: 7.5px;
+    height: 50px;
+    border-radius: 10px 10px;
+  }
+}
+
 #login {
   width: 100%;
 }
@@ -159,13 +179,30 @@ nav a svg {
   list-style: none;
 }
 
-#login .userstype ul.userslist li {
-  border-radius: 20px;
-  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+#login .userstype ul.userslist li:not(:last-child) {
+  margin-bottom: 15px;
 }
 
-#login .userstype ul.userslist li .informations {
+#login .userstype ul.userslist li#userlistelement {
+  position: relative;
+  border-radius: 20px;
+  height: 80px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#login .userstype ul.userslist li#userlistelement.active {
+  height: 160px;
+}
+
+#login .userstype ul.userslist li#userlistelement.active form.login {
+  border-radius: 0 0 20px 20px;
+}
+
+#login .userstype ul.userslist li#userlistelement .informations {
   background: #5350d5;
   overflow-wrap: anywhere;
   position: relative;
@@ -187,12 +224,12 @@ nav a svg {
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li .informations:hover,
-#login .userstype ul.userslist li .informations a.active {
+#login .userstype ul.userslist li#userlistelement .informations:hover,
+#login .userstype ul.userslist li#userlistelement .informations a.active {
   background: #6d5cde;
 }
 
-#login .userstype ul.userslist li .informations #logo {
+#login .userstype ul.userslist li#userlistelement .informations #logo {
   width: 50px;
   height: 50px;
   border-radius: 20px;
@@ -201,16 +238,17 @@ nav a svg {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#login .userstype ul.userslist li .informations #pseudo {
+#login .userstype ul.userslist li#userlistelement .informations #pseudo {
   font-family: "Gilroy Medium";
   font-weight: 500;
   font-size: 22px;
   color: #f5f8ff;
 }
 
-#login .userstype ul.userslist li form.login {
-  position: relative;
+#login .userstype ul.userslist li#userlistelement form.login {
+  position: absolute;
   z-index: 1;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,18 +258,15 @@ nav a svg {
   -webkit-column-gap: 15px;
           column-gap: 15px;
   padding: 15px;
-  max-width: 100%;
+  padding-top: 45px;
+  width: 100%;
   border-radius: 20px;
   background: #5350d5;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li form.login.active {
-  border-radius: 0 0 20px 20px;
-}
-
-#login .userstype ul.userslist li form.login .input {
+#login .userstype ul.userslist li#userlistelement form.login .input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,7 +284,7 @@ nav a svg {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-#login .userstype ul.userslist li form.login .input input {
+#login .userstype ul.userslist li#userlistelement form.login .input input {
   font-family: "Gilroy Light";
   font-weight: 300;
   border: none;
@@ -259,23 +294,23 @@ nav a svg {
   color: #0c2659;
 }
 
-#login .userstype ul.userslist li form.login .input input::-webkit-input-placeholder {
+#login .userstype ul.userslist li#userlistelement form.login .input input::-webkit-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li form.login .input input:-ms-input-placeholder {
+#login .userstype ul.userslist li#userlistelement form.login .input input:-ms-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li form.login .input input::-ms-input-placeholder {
+#login .userstype ul.userslist li#userlistelement form.login .input input::-ms-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li form.login .input input::placeholder {
+#login .userstype ul.userslist li#userlistelement form.login .input input::placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li form.login .input button#show_password {
+#login .userstype ul.userslist li#userlistelement form.login .input button#show_password {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,17 +324,17 @@ nav a svg {
   max-height: 20px;
 }
 
-#login .userstype ul.userslist li form.login .input button#show_password:hover svg {
+#login .userstype ul.userslist li#userlistelement form.login .input button#show_password:hover svg {
   fill: #5350d5;
 }
 
-#login .userstype ul.userslist li form.login .input button#show_password svg {
+#login .userstype ul.userslist li#userlistelement form.login .input button#show_password svg {
   fill: #0c2659;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li form.login button[type="submit"] {
+#login .userstype ul.userslist li#userlistelement form.login button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,14 +352,25 @@ nav a svg {
   transition: 0.1s;
 }
 
-#login .userstype ul.userslist li form.login button[type="submit"]:hover {
+#login .userstype ul.userslist li#userlistelement form.login button[type="submit"]:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#login .userstype ul.userslist li form.login button[type="submit"] svg {
+#login .userstype ul.userslist li#userlistelement form.login button[type="submit"] svg {
   fill: #f5f8ff;
   -webkit-transform: translateX(1px);
           transform: translateX(1px);
+}
+
+@media screen and (min-width: 768px) {
+  ul.userslist {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-column-gap: 15px;
+            column-gap: 15px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -23,9 +23,25 @@
         ul.userslist {
             list-style: none;
 
-            li {
+            li:not(:last-child) {
+                margin-bottom: 15px;
+            }
+
+            li#userlistelement {
+                position: relative;
                 border-radius: 20px;
+                height: 80px;
+                overflow: hidden;
                 box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.15);
+                transition: 0.2s;
+
+                &.active {
+                    height: 160px;
+
+                    form.login {
+                        border-radius: 0 0 20px 20px;
+                    }
+                }
 
                 .informations {
                     background: $contrast-tertiary;
@@ -61,20 +77,18 @@
                     }
                 }
                 form.login {
-                    position: relative;
+                    position: absolute;
                     z-index: 1;
+                    bottom: 0;
                     display: flex;
                     align-items: center;
                     column-gap: 15px;
                     padding: 15px;
-                    max-width: 100%;
+                    padding-top: 45px;
+                    width: 100%;
                     border-radius: 20px;
                     background: $contrast-tertiary;
                     transition: 0.2s;
-
-                    &.active {
-                        border-radius: 0 0 20px 20px;
-                    }
 
                     .input {
                         display: flex;
@@ -137,5 +151,14 @@
                 }
             }
         }
+    }
+}
+
+// Responsive :
+@media screen and (min-width: 768px) {
+    ul.userslist {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 15px;
     }
 }
