@@ -1,0 +1,60 @@
+// Variables :
+$grayscale-primary: #f5f8ff;
+$grayscale-secondary: #dbe9f6;
+$grayscale-tertiary: #b8c5d5;
+
+$contrast-primary: #1dcbf2;
+$contrast-secondary: #0c2659;
+$contrast-tertiary: #5350d5;
+
+$info-red: #e74343;
+$info-orange: #e78843;
+$info-green: #43e77a;
+
+$main-primary: #6d5cde;
+$main-secondary: #4530b1;
+$main-tertiary: #3e2ea6;
+$main-hover: #341ea7;
+
+// Fonts :
+@font-face {
+    font-family: "Gilroy Light";
+    src: url("../fonts/Gilroy-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gilroy Regular";
+    src: url("../fonts/Gilroy-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gilroy Medium";
+    src: url("../fonts/Gilroy-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url("../fonts/Gilroy-Bold.ttf") format("truetype");
+}
+
+// Reset :
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    padding: 15px;
+}
+
+// Imports :
+@import "./scss_files/_mixin.scss";
+
+@import "./scss_files/_navbar.scss";
+@import "./scss_files/_login.scss";
