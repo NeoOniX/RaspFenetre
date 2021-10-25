@@ -23,7 +23,6 @@ class SecretGenerator {
                 reject(err)
             }
         });
-        
     }
 }
 

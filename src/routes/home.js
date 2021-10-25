@@ -3,8 +3,12 @@ const express = require('express');
 let router = express.Router();
 
 function getRoute (...args) {
-    router.get('/login', (req, res) => {
-        res.render('login.ejs');
+    router.get('/', (req, res) => {
+        res.redirect('/home');
+    });
+
+    router.get('/home', (req, res) => {
+        res.render('home.ejs');
     });
 
     return router;

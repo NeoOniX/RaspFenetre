@@ -1,4 +1,13 @@
 module.exports = {
-    SecretGenerator: require('./SecretGenerator'),
-    Scan: require('./Scan')
+    Tools: {
+        AuthPassport: require('./AuthPassport'),
+        IDGenerator: require('./IDGenerator'),
+        SecretGenerator: require('./SecretGenerator'),
+        Scan: require('./Scan'),
+    },
+    Classes: {
+        Device: require('./Device'),
+        User: require('./User'),
+        Room: require('./Room'),
+    }
 }
