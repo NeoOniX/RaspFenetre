@@ -1,0 +1,61 @@
+// Mixin :
+// Position Absolute :
+@mixin absoluteCenter() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// FlexBox :
+@mixin flexMid() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexMidColumn() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin flexLeft {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+@mixin flexBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flexAround {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+// Fonts :
+@mixin GilroyLight {
+    font-family: "Gilroy Light";
+    font-weight: 300;
+}
+
+@mixin GilroyRegular {
+    font-family: "Gilroy Regular";
+    font-weight: 400;
+}
+
+@mixin GilroyMedium {
+    font-family: "Gilroy Medium";
+    font-weight: 500;
+}
+
+@mixin GilroyBold {
+    font-family: "Gilroy Bold";
+    font-weight: 700;
+}

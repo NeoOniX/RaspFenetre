@@ -1,0 +1,12 @@
+<%- include('./include/header', {title: "Connexion", bodyclass: "purple"}); %>
+<section id="login">
+    <h1>Connexion</h1>
+    <div class="userstype">
+        <h2>Administrateurs</h2>
+        <ul class="userslist">
+            <%- include('./include/userlogincard', {pseudo: "Gauthier"}); %>
+        </ul>
+    </div>
+</section>
+<script type="text/javascript" src="js/login.js"></script>
+<%- include('./include/footer'); %>
