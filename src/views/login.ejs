@@ -1,12 +1,22 @@
-<%- include('./include/header', {title: "Connexion", bodyclass: "purple"}); %>
-<section id="login">
-    <h1>Connexion</h1>
-    <div class="userstype">
-        <h2>Administrateurs</h2>
-        <ul class="userslist">
-            <%- include('./include/userlogincard', {logo: "logo.png", pseudo: "Gauthier"}); %>
-        </ul>
-    </div>
-</section>
-<script type="text/javascript" src="js/login.js"></script>
-<%- include('./include/footer'); %>
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('./include/head', {title: "Connexion"}); %>
+    <body class="purple">
+        <section id="login">
+            <h1>Connexion</h1>
+            <div class="userstype">
+                <h2>Administrateurs</h2>
+                <ul class="userslist">
+                    <%- include('./include/userlogincard', {logo: "logo.png", pseudo: "Administrateur"}); %>
+                </ul>
+            </div>
+            <div class="userstype">
+                <h2>Utilisateurs</h2>
+                <ul class="userslist">
+                    <%- include('./include/userlogincard', {logo: "logo.png", pseudo: "Utilisateur"}); %>
+                </ul>
+            </div>
+        </section>
+    </body>
+    <script type="text/javascript" src="js/login.js"></script>
+</html>
