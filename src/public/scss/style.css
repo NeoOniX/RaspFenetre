@@ -161,6 +161,7 @@ button {
   color: #f5f8ff;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 #login .userstype ul.userslist li#userlistelement .login {

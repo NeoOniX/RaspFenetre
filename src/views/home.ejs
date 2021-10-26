@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <%- include('./include/head', {title: "Accueil"}); %>
+    <%- include('./partials/head', {title: "Accueil"}); %>
     <body class="light">
-        <%- include('./include/header', {pseudo: "Pseudo", logo: "logo.png"}); %>
+        <%- include('./partials/header', {pseudo: "Pseudo", icon: "logo.png"}); %>
         <div class="roomlist">
-            <%- include('./include/roomcard', {roomname: "Classe E2"}); %><%- include('./include/roomcard', {roomname: "Classe E2"}); %>
+            <%- include('./partials/roomcard', {roomname: "Classe E2"}); %><%- include('./partials/roomcard', {roomname: "Classe E2"}); %>
         </div>
-        <%- include('./include/navbar'); %>
+        <%- include('./partials/navbar'); %>
     </body>
 </html>
