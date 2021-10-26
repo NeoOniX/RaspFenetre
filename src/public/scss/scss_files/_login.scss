@@ -223,12 +223,12 @@
     padding: 15px;
     background: linear-gradient(175deg, $main-primary 0%, $main-secondary 50%);
     transform-origin: top right;
-    clip-path: circle(0% at 90.25% 4.25%);
+    clip-path: circle(0% at 100% 0%);
     overflow-y: scroll;
     transition: 0.5s;
 
     &.active {
-        clip-path: circle(150% at 90.25% 4.25%);
+        clip-path: circle(150% at 100% 0%);
     }
 
     span#actual {

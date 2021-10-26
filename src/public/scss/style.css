@@ -382,16 +382,16 @@ button {
   background: linear-gradient(175deg, #6d5cde 0%, #4530b1 50%);
   -webkit-transform-origin: top right;
           transform-origin: top right;
-  -webkit-clip-path: circle(0% at 90.25% 4.25%);
-          clip-path: circle(0% at 90.25% 4.25%);
+  -webkit-clip-path: circle(0% at 100% 0%);
+          clip-path: circle(0% at 100% 0%);
   overflow-y: scroll;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 #login.modal.active {
-  -webkit-clip-path: circle(150% at 90.25% 4.25%);
-          clip-path: circle(150% at 90.25% 4.25%);
+  -webkit-clip-path: circle(150% at 100% 0%);
+          clip-path: circle(150% at 100% 0%);
 }
 
 #login.modal span#actual {
