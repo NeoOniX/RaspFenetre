@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'Gilroy Light';
+  font-family: "Gilroy Light";
   src: url("../fonts/Gilroy-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Gilroy Regular';
+  font-family: "Gilroy Regular";
   src: url("../fonts/Gilroy-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Gilroy Medium';
+  font-family: "Gilroy Medium";
   src: url("../fonts/Gilroy-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Gilroy Bold';
+  font-family: "Gilroy Bold";
   src: url("../fonts/Gilroy-Bold.ttf") format("truetype");
 }
 
@@ -53,6 +53,24 @@ button {
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+::-webkit-scrollbar {
+  background: #f5f8ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3e2ea6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #341ea7;
+}
+
+@media screen and (min-width: 768px) {
+  body.need_padding {
+    padding-left: 105px;
+  }
 }
 
 #login {
@@ -603,6 +621,8 @@ header .right .logo #headerlogo {
   background: #4530b1;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  cursor: -webkit-grab;
+  cursor: grab;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -676,6 +696,16 @@ header .right .logo #headerlogo {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
+}
+
+@media screen and (min-width: 768px) {
+  .roomlist {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 }
 
 .togglebuttons {
