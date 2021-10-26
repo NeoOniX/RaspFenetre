@@ -10,7 +10,7 @@ class User {
     }
 
     static deserialize (id) {
-        let users = parse(readFileSync(join(__dirname, "../../store/users.json")));
+        let users = this.list();
         let user = users.filter((user) => user.id == id)[0];
 
         if (user) {
@@ -20,63 +20,64 @@ class User {
         }
     }
 
-    static register (icon, name, pass, ...perms) {
-        let users = parse(readFileSync(join(__dirname, "../../store/users.json")));
-        let id = IDGenerator.generate();
-        let dupID = users.filter((user) => user.id == id)[0];
-
-        while (id == dupID) {
-            id = IDGenerator.generate();
-        }
-
-        bcrypt.genSalt(10, (err, salt) => {
-            if (err) throw err;
-            bcrypt.hash(pass, salt, (err, hash) => {
-                if (err) throw err;
-                let user = {
-                    id,
-                    icon,
-                    name,
-                    pass: hash,
-                    perms: perms ? perms : [],
-                    prefs: [],
-                }
-
-                users.push(user);
-                writeFileSync(join(__dirname, "../../store/users.json"), stringify(users, null, 4));
-                return user;
+    static register (icon, name, pass, perms = []) {
+        return new Promise((resolve, reject) => {
+            let users = this.list();
+            let id = IDGenerator.generate();
+            let dupID = users.filter((user) => user.id == id)[0];
+    
+            while (id == dupID) {
+                id = IDGenerator.generate();
+            }
+    
+            bcrypt.genSalt(10, (err, salt) => {
+                if (err) reject(err);
+                bcrypt.hash(pass, salt, (err, hash) => {
+                    if (err) reject(err);
+                    let user = {
+                        id,
+                        icon,
+                        name,
+                        pass: hash,
+                        perms,
+                        prefs: [],
+                    }
+    
+                    users.push(user);
+                    writeFileSync(join(__dirname, "../../store/users.json"), stringify(users, null, 4));
+                    resolve(user);
+                });
             });
         });
-
-        
     }
 
     static login (name, pass) {
-        let users = parse(readFileSync(join(__dirname, "../../store/users.json")));
-        let user = users.filter((user) => user.name == name)[0];
-
-        if (user) {
-            bcrypt.compare(pass, user.pass, (err, isMatch) => {
-                if (err) throw err;
-                if (isMatch) {
-                    return {
-                        loggedIn: true,
-                        user: {...user},
+        return new Promise((resolve, reject) => {
+            let users = this.list();
+            let user = users.filter((user) => user.name == name)[0];
+    
+            if (user) {
+                bcrypt.compare(pass, user.pass, (err, isMatch) => {
+                    if (err) reject(err);
+                    if (isMatch) {
+                        resolve({
+                            loggedIn: true,
+                            user: user,
+                        });
+                    } else {
+                        resolve({
+                            loggedIn: false,
+                            message: "Mot de passe incorrect.",
+                        });
                     }
-                } else {
-                    return {
-                        loggedIn: false,
-                        message: "Mot de passe incorrect.",
-                    }
-                }
-            })
-            return user;
-        } else {
-            return {
-                loggedIn: false,
-                message: "Utilisateur inexistant.",
+                });
+            } else {
+                resolve({
+                    loggedIn: false,
+                    message: "Utilisateur inexistant.",
+                });
             }
-        }
+        });
     }
 }
 

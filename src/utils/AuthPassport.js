@@ -5,12 +5,15 @@ class AuthPassport {
     static setAsLocal(passport) {
         passport.use(
             new LocalStrategy({usernameField: 'username', passwordField: 'pass'}, (username, password, done) => {
-                let logs = User.login(username, password);
-                if (logs.loggedIn) {
-                    return done(null, logs.user);
-                } else {
-                    return done(null, false, {message: message});
-                }
+                User.login(username, password).then((logs) => {
+                    if (logs.loggedIn) {
+                        return done(null, logs.user);
+                    } else {
+                        return done(null, false, {message: logs.message});
+                    }
+                }).catch((reason) => {
+                    throw reason;
+                });
             })
         );
 

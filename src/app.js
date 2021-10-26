@@ -49,6 +49,7 @@ app
 
 // Routes
 app.use("/", require('./routes/home')());
+app.use("/init", require('./routes/init')(passport));
 app.use("/auth", require('./routes/auth')(passport));
 app.use("/api", require('./routes/api')());
 
