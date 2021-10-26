@@ -2,21 +2,7 @@
 <html lang="fr">
     <%- include('./partials/head', {title: "Connexion"}); %>
     <body class="purple">
-        <section id="login">
-            <h1>Connexion</h1>
-            <div class="userstype">
-                <h2>Administrateurs</h2>
-                <ul class="userslist">
-                    <%- include('./partials/userlogincard', {icon: "logo.png", name: "Administrateur"}); %>
-                </ul>
-            </div>
-            <div class="userstype">
-                <h2>Utilisateurs</h2>
-                <ul class="userslist">
-                    <%- include('./partials/userlogincard', {icon: "logo.png", name: "Utilisateur"}); %>
-                </ul>
-            </div>
-        </section>
+        <%- include('./partials/userslogin', {loginpagetitle: "Connexion"}); %>
     </body>
     <script type="text/javascript" src="js/login.js"></script>
 </html>

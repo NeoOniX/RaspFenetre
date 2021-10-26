@@ -1,0 +1,26 @@
+<section id="login" class="<% if (loginpagetitle == 'Choix du compte') { %>modal<% } %>">
+    <div class="top">
+        <h1><%= loginpagetitle %></h1>
+        <% if (loginpagetitle == "Choix du compte") { %>
+        <button id="closelogin">
+            <svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M22.5704 0.5L12.5882 10.4821L2.6061 0.5L0.0882416 3.01786L10.0704 13L0.0882416 22.9821L2.6061 25.5L12.5882 15.5179L22.5704 25.5L25.0882 22.9821L15.1061 13L25.0882 3.01786L22.5704 0.5Z"
+                />
+            </svg>
+        </button>
+        <% } %>
+    </div>
+    <div class="userstype">
+        <h2>Administrateurs</h2>
+        <ul class="userslist">
+            <%- include('userlogincard', {icon: "logo.png", name: "Administrateur", connected: false}); %>
+        </ul>
+    </div>
+    <div class="userstype">
+        <h2>Utilisateurs</h2>
+        <ul class="userslist">
+            <%- include('userlogincard', {icon: "logo.png", name: "Utilisateur", connected: true}); %>
+        </ul>
+    </div>
+</section>

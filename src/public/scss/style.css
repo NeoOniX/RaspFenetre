@@ -74,16 +74,61 @@ button {
 }
 
 #login {
+  position: relative;
   width: 100%;
 }
 
-#login h1 {
+#login .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 50px;
+  height: 50px;
+}
+
+#login .top h1 {
   font-family: "Gilroy Bold";
   font-weight: 700;
   text-align: center;
   font-size: 26px;
   color: #f5f8ff;
-  margin-bottom: 50px;
+}
+
+#login .top button#closelogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-radius: 20px;
+  border: 1px solid #f5f8ff;
+  width: 50px;
+  height: 50px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#login .top button#closelogin:hover {
+  background: #6d5cde;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+#login .top button#closelogin svg {
+  fill: #dbe9f6;
 }
 
 #login .userstype {
@@ -113,8 +158,24 @@ button {
 
 #login .userstype ul.userslist li#userlistelement {
   position: relative;
-  border-radius: 20px;
+}
+
+#login .userstype ul.userslist li#userlistelement.active form {
+  height: 160px;
+}
+
+#login .userstype ul.userslist li#userlistelement.active form form.login {
+  border-radius: 0 0 20px 20px;
+}
+
+#login .userstype ul.userslist li#userlistelement span#actual {
+  display: none;
+}
+
+#login .userstype ul.userslist li#userlistelement form {
+  position: relative;
   height: 80px;
+  border-radius: 20px;
   overflow: hidden;
   -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
@@ -122,15 +183,7 @@ button {
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement.active {
-  height: 160px;
-}
-
-#login .userstype ul.userslist li#userlistelement.active form.login {
-  border-radius: 0 0 20px 20px;
-}
-
-#login .userstype ul.userslist li#userlistelement .informations {
+#login .userstype ul.userslist li#userlistelement form .informations {
   background: #5350d5;
   overflow-wrap: anywhere;
   position: relative;
@@ -141,6 +194,9 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-column-gap: 15px;
           column-gap: 15px;
   padding: 15px;
@@ -152,13 +208,27 @@ button {
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement .informations:hover,
-#login .userstype ul.userslist li#userlistelement .informations a.active {
+#login .userstype ul.userslist li#userlistelement form .informations:hover,
+#login .userstype ul.userslist li#userlistelement form .informations a.active {
   background: #6d5cde;
 }
 
-#login .userstype ul.userslist li#userlistelement .informations .logo {
-  width: 50px;
+#login .userstype ul.userslist li#userlistelement form .informations .global {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+}
+
+#login .userstype ul.userslist li#userlistelement form .informations .global .logo {
+  min-width: 50px;
   height: 50px;
   border-radius: 20px;
   border: 1px solid #f5f8ff;
@@ -167,22 +237,23 @@ button {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#login .userstype ul.userslist li#userlistelement .informations .logo #logo {
+#login .userstype ul.userslist li#userlistelement form .informations .global .logo #logo {
   width: 100%;
   height: 100%;
 }
 
-#login .userstype ul.userslist li#userlistelement .informations input#pseudo {
+#login .userstype ul.userslist li#userlistelement form .informations .global input#pseudo {
   font-family: "Gilroy Medium";
   font-weight: 500;
   font-size: 22px;
   color: #f5f8ff;
   background: none;
   border: none;
+  width: 100%;
   cursor: pointer;
 }
 
-#login .userstype ul.userslist li#userlistelement .login {
+#login .userstype ul.userslist li#userlistelement form .login {
   position: absolute;
   z-index: 1;
   bottom: 0;
@@ -195,7 +266,7 @@ button {
   -webkit-column-gap: 15px;
           column-gap: 15px;
   padding: 15px;
-  padding-top: 45px;
+  padding-top: 50px;
   width: 100%;
   border-radius: 20px;
   background: #5350d5;
@@ -203,7 +274,7 @@ button {
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input {
+#login .userstype ul.userslist li#userlistelement form .login .input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,7 +292,7 @@ button {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input input {
+#login .userstype ul.userslist li#userlistelement form .login .input input {
   font-family: "Gilroy Light";
   font-weight: 300;
   border: none;
@@ -231,23 +302,23 @@ button {
   color: #0c2659;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input input::-webkit-input-placeholder {
+#login .userstype ul.userslist li#userlistelement form .login .input input::-webkit-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input input:-ms-input-placeholder {
+#login .userstype ul.userslist li#userlistelement form .login .input input:-ms-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input input::-ms-input-placeholder {
+#login .userstype ul.userslist li#userlistelement form .login .input input::-ms-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input input::placeholder {
+#login .userstype ul.userslist li#userlistelement form .login .input input::placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input button#show_password {
+#login .userstype ul.userslist li#userlistelement form .login .input button#show_password {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -261,17 +332,17 @@ button {
   max-height: 20px;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input button#show_password:hover svg {
+#login .userstype ul.userslist li#userlistelement form .login .input button#show_password:hover svg {
   fill: #5350d5;
 }
 
-#login .userstype ul.userslist li#userlistelement .login .input button#show_password svg {
+#login .userstype ul.userslist li#userlistelement form .login .input button#show_password svg {
   fill: #0c2659;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement .login button[type='submit'] {
+#login .userstype ul.userslist li#userlistelement form .login button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,15 +360,90 @@ button {
   transition: 0.1s;
 }
 
-#login .userstype ul.userslist li#userlistelement .login button[type='submit']:hover {
+#login .userstype ul.userslist li#userlistelement form .login button[type="submit"]:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#login .userstype ul.userslist li#userlistelement .login button[type='submit'] svg {
+#login .userstype ul.userslist li#userlistelement form .login button[type="submit"] svg {
   fill: #f5f8ff;
   -webkit-transform: translateX(1px);
           transform: translateX(1px);
+}
+
+#login.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 25;
+  width: 100%;
+  height: 100vh;
+  padding: 15px;
+  background: linear-gradient(175deg, #6d5cde 0%, #4530b1 50%);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-clip-path: circle(0% at 90.25% 4.25%);
+          clip-path: circle(0% at 90.25% 4.25%);
+  overflow-y: scroll;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#login.modal.active {
+  -webkit-clip-path: circle(150% at 90.25% 4.25%);
+          clip-path: circle(150% at 90.25% 4.25%);
+}
+
+#login.modal span#actual {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Gilroy Light";
+  font-weight: 300;
+  display: block !important;
+  position: absolute;
+  right: 15px;
+  top: -15px;
+  z-index: 5;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background: #1dcbf2;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  color: #f5f8ff;
+  font-size: 18px;
+}
+
+#login.modal form .informations button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #f5f8ff;
+}
+
+#login.modal form .informations button:hover {
+  border: 1px solid #e74343;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#login.modal form .informations button svg {
+  fill: #f5f8ff;
 }
 
 @media screen and (min-width: 768px) {
