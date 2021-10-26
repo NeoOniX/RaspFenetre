@@ -1,0 +1,104 @@
+.roomlist {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 15px;
+}
+
+.roomcard {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid $main-secondary;
+    padding: 15px;
+
+    .head {
+        @include flexBetween;
+
+        column-gap: 10px;
+        width: 100%;
+
+        p {
+            @include GilroyMedium;
+
+            width: 100%;
+            font-size: 22px;
+            border-radius: 15px;
+            color: $grayscale-primary;
+            padding: 10px;
+            background: $main-secondary;
+            box-shadow: 0px 0px 25px rgba($color: #000000, $alpha: 0.15);
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background: $main-hover;
+            }
+        }
+        #draggable {
+            @include flexMid;
+
+            height: 40px;
+            min-width: 40px;
+            border-radius: 100%;
+            border: 1px solid $grayscale-primary;
+            background: $main-secondary;
+            box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.25);
+            transition: 0.2s;
+
+            &:hover {
+                background: $main-hover;
+            }
+
+            svg {
+                fill: $grayscale-primary;
+            }
+        }
+    }
+    .informations {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+
+        h2 {
+            @include GilroyMedium;
+
+            font-size: 22px;
+            color: $contrast-secondary;
+        }
+        ul.devices_list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+
+            li.device_element {
+                display: flex;
+                flex-direction: column;
+                row-gap: 15px;
+                background: $main-secondary;
+                border-radius: 15px;
+                padding: 15px;
+                box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.25);
+
+                #device_name {
+                    @include GilroyMedium;
+
+                    font-size: 18px;
+                    color: $grayscale-primary;
+                }
+                #device_value {
+                    @include GilroyBold;
+
+                    font-size: 22px;
+                    color: $contrast-primary;
+                }
+
+                &:last-child:nth-child(2n + 1) {
+                    grid-column: 1 / span 2;
+                }
+            }
+        }
+    }
+}

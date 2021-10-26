@@ -2,6 +2,10 @@
 <html lang="fr">
     <%- include('./include/head', {title: "Accueil"}); %>
     <body class="light">
-        <%- include('./include/header', {pseudo: "Pseudo", logo: "logo.png"}); %> <%- include('./include/navbar'); %>
+        <%- include('./include/header', {pseudo: "Pseudo", logo: "logo.png"}); %>
+        <div class="roomlist">
+            <%- include('./include/roomcard', {roomname: "Classe E2"}); %><%- include('./include/roomcard', {roomname: "Classe E2"}); %>
+        </div>
+        <%- include('./include/navbar'); %>
     </body>
 </html>

@@ -80,14 +80,16 @@
                         }
                     }
 
-                    #pseudo {
+                    input#pseudo {
                         @include GilroyMedium;
 
                         font-size: 22px;
                         color: $grayscale-primary;
+                        background: none;
+                        border: none;
                     }
                 }
-                form.login {
+                .login {
                     position: absolute;
                     z-index: 1;
                     bottom: 0;

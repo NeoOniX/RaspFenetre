@@ -1,20 +1,20 @@
 @font-face {
-  font-family: "Gilroy Light";
+  font-family: 'Gilroy Light';
   src: url("../fonts/Gilroy-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Gilroy Regular";
+  font-family: 'Gilroy Regular';
   src: url("../fonts/Gilroy-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Gilroy Medium";
+  font-family: 'Gilroy Medium';
   src: url("../fonts/Gilroy-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Gilroy Bold";
+  font-family: 'Gilroy Bold';
   src: url("../fonts/Gilroy-Bold.ttf") format("truetype");
 }
 
@@ -154,14 +154,16 @@ button {
   height: 100%;
 }
 
-#login .userstype ul.userslist li#userlistelement .informations #pseudo {
+#login .userstype ul.userslist li#userlistelement .informations input#pseudo {
   font-family: "Gilroy Medium";
   font-weight: 500;
   font-size: 22px;
   color: #f5f8ff;
+  background: none;
+  border: none;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login {
+#login .userstype ul.userslist li#userlistelement .login {
   position: absolute;
   z-index: 1;
   bottom: 0;
@@ -182,7 +184,7 @@ button {
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input {
+#login .userstype ul.userslist li#userlistelement .login .input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,7 +202,7 @@ button {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input input {
+#login .userstype ul.userslist li#userlistelement .login .input input {
   font-family: "Gilroy Light";
   font-weight: 300;
   border: none;
@@ -210,23 +212,23 @@ button {
   color: #0c2659;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input input::-webkit-input-placeholder {
+#login .userstype ul.userslist li#userlistelement .login .input input::-webkit-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input input:-ms-input-placeholder {
+#login .userstype ul.userslist li#userlistelement .login .input input:-ms-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input input::-ms-input-placeholder {
+#login .userstype ul.userslist li#userlistelement .login .input input::-ms-input-placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input input::placeholder {
+#login .userstype ul.userslist li#userlistelement .login .input input::placeholder {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input button#show_password {
+#login .userstype ul.userslist li#userlistelement .login .input button#show_password {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,17 +242,17 @@ button {
   max-height: 20px;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input button#show_password:hover svg {
+#login .userstype ul.userslist li#userlistelement .login .input button#show_password:hover svg {
   fill: #5350d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login .input button#show_password svg {
+#login .userstype ul.userslist li#userlistelement .login .input button#show_password svg {
   fill: #0c2659;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login button[type='submit'] {
+#login .userstype ul.userslist li#userlistelement .login button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,12 +270,12 @@ button {
   transition: 0.1s;
 }
 
-#login .userstype ul.userslist li#userlistelement form.login button[type='submit']:hover {
+#login .userstype ul.userslist li#userlistelement .login button[type='submit']:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#login .userstype ul.userslist li#userlistelement form.login button[type='submit'] svg {
+#login .userstype ul.userslist li#userlistelement .login button[type='submit'] svg {
   fill: #f5f8ff;
   -webkit-transform: translateX(1px);
           transform: translateX(1px);
@@ -421,7 +423,7 @@ header .left button {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 20px;
-  border: 1px solid #0c2659;
+  border: 1px solid #6d5cde;
   width: 50px;
   height: 50px;
   -webkit-transition: 0.2s;
@@ -435,7 +437,7 @@ header .left button:hover {
 }
 
 header .left button svg {
-  fill: #0c2659;
+  fill: #4530b1;
 }
 
 header .right {
@@ -502,20 +504,214 @@ header .right #headernotifications .notificationsnumber p {
   color: #f5f8ff;
 }
 
-header .right #headerlogo {
+header .right .logo {
   width: 50px;
   height: 50px;
   border-radius: 20px;
   border: 1px solid #f5f8ff;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-header .right #headerlogo:hover {
+header .right .logo:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+header .right .logo #headerlogo {
+  width: 100%;
+  height: 100%;
+}
+
+.roomlist {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  row-gap: 15px;
+}
+
+.roomcard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 30px;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #4530b1;
+  padding: 15px;
+}
+
+.roomcard .head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  width: 100%;
+}
+
+.roomcard .head p {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  font-size: 22px;
+  border-radius: 15px;
+  color: #f5f8ff;
+  padding: 10px;
+  background: #4530b1;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.roomcard .head p:hover {
+  background: #341ea7;
+}
+
+.roomcard .head #draggable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 100%;
+  border: 1px solid #f5f8ff;
+  background: #4530b1;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.roomcard .head #draggable:hover {
+  background: #341ea7;
+}
+
+.roomcard .head #draggable svg {
+  fill: #f5f8ff;
+}
+
+.roomcard .informations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+}
+
+.roomcard .informations h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+  color: #0c2659;
+}
+
+.roomcard .informations ul.devices_list {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+}
+
+.roomcard .informations ul.devices_list li.device_element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+  background: #4530b1;
+  border-radius: 15px;
+  padding: 15px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.roomcard .informations ul.devices_list li.device_element #device_name {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 18px;
+  color: #f5f8ff;
+}
+
+.roomcard .informations ul.devices_list li.device_element #device_value {
+  font-family: "Gilroy Bold";
+  font-weight: 700;
+  font-size: 22px;
+  color: #1dcbf2;
+}
+
+.roomcard .informations ul.devices_list li.device_element:last-child:nth-child(2n + 1) {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+}
+
+.togglebuttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 100%;
+  border: 1px solid #43e77a;
+  background: rgba(67, 231, 122, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.togglebuttons:hover {
+  background: rgba(44, 207, 99, 0.8);
+}
+
+.togglebuttons.down {
+  border: 1px solid #e74343;
+  background: rgba(231, 67, 67, 0.8);
+}
+
+.togglebuttons.down:hover {
+  background: rgba(212, 45, 45, 0.8);
+}
+
+.togglebuttons svg {
+  fill: #f5f8ff;
 }
 /*# sourceMappingURL=style.css.map */
