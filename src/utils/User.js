@@ -5,6 +5,9 @@ const { join } = require('path');
 const { parse, stringify } = JSON;
 
 class User {
+    static list () {
+        return parse(readFileSync(join(__dirname, "../../store/users.json")));
+    }
 
     static deserialize (id) {
         let users = parse(readFileSync(join(__dirname, "../../store/users.json")));

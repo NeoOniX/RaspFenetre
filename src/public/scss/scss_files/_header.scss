@@ -1,0 +1,99 @@
+header {
+    @include flexBetween;
+
+    width: 100%;
+    margin-bottom: 50px;
+
+    .left {
+        p {
+            @include GilroyRegular;
+
+            font-size: 20px;
+            color: $contrast-secondary;
+
+            span {
+                @include GilroyBold;
+            }
+        }
+        button {
+            @include flexMid;
+
+            border-radius: 20px;
+            border: 1px solid $main-primary;
+            width: 50px;
+            height: 50px;
+            transition: 0.2s;
+
+            &:hover {
+                background: $grayscale-primary;
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.25);
+            }
+
+            svg {
+                fill: $main-secondary;
+            }
+        }
+    }
+    .right {
+        @include flexMid;
+        column-gap: 15px;
+
+        #headernotifications {
+            @include flexMid;
+
+            position: relative;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: 1px solid $main-primary;
+            padding: 8px 10px;
+            transition: 0.2s;
+
+            &:hover {
+                background: $grayscale-primary;
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.25);
+            }
+
+            svg {
+                fill: $main-primary;
+            }
+            .notificationsnumber {
+                position: absolute;
+                top: -50%;
+                right: 0;
+                transform: translateY(50%);
+                border-radius: 10px;
+                padding: 1px 5px;
+                background: $info-red;
+                border: 1px solid $grayscale-primary;
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
+
+                p {
+                    @include GilroyLight;
+
+                    color: $grayscale-primary;
+                }
+            }
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            border: 1px solid $grayscale-primary;
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
+            }
+
+            #headerlogo {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

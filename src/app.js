@@ -9,16 +9,19 @@ const favicon = require('serve-favicon');
 const config = require('../config');
 const { join } = require('path');
 const { Tools, Classes } = require('./utils');
-const { Scan } = Tools;
+const { Scan, AuthPassport } = Tools;
 const { User, Device, Room } = Classes;
 let passport = require('passport');
 
 // User
 // let u = User.register("test", "Gauthier", "clear");
-console.log(User.login("Gauthier", "clear"));
+// console.log(User.login("Gauthier", "clear"));
 
 // IP Scan
-Scan.scan(config.network.CIDR, config.network.options).then(console.log);
+// Scan.scan(config.network.CIDR, config.network.options).then(console.log);
+
+// Local Passport
+AuthPassport.setAsLocal(passport);
 
 // Express App
 let app = express();
@@ -46,7 +49,7 @@ app
 
 // Routes
 app.use("/", require('./routes/home')());
-app.use("/auth", require('./routes/auth')());
+app.use("/auth", require('./routes/auth')(passport));
 app.use("/api", require('./routes/api')());
 
 // Server start

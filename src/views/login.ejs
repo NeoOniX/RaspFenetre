@@ -1,12 +1,26 @@
-<%- include('./partials/header', {title: "Connexion", bodyclass: "purple"}); %>
-<section id="login">
-    <h1>Connexion</h1>
-    <div class="userstype">
-        <h2>Administrateurs</h2>
-        <ul class="userslist">
-            <%- include('./partials/userlogincard', {pseudo: "Gauthier"}); %>
-        </ul>
-    </div>
-</section>
-<script type="text/javascript" src="../js/login.js"></script>
-<%- include('./partials/footer'); %>
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('./partials/head', {title: "Connexion"}); %>
+    <body class="purple">
+        <section id="login">
+            <h1>Connexion</h1>
+            <div class="userstype">
+                <h2>Administrateurs</h2>
+                <ul class="userslist">
+                    <%- include('./partials/userlogincard', { ...users[0] }); %>
+                </ul>
+            </div>
+            <div class="userstype">
+            <% if (users.length > 1) { %> 
+                <h2>Utilisateurs</h2>
+                <ul class="userslist">
+                    <% for(let i = 1; i < users.length; i++) { %>
+                        <%- include('./partials/userlogincard', { ...users[i] }); %>
+                    <% } %>
+                </ul>
+            <% } %>
+            </div>
+        </section>
+    </body>
+    <script type="text/javascript" src="../js/login.js"></script>
+</html>

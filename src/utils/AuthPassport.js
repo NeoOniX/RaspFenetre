@@ -2,7 +2,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('./User');
 
 class AuthPassport {
-    constructor(passport) {
+    static setAsLocal(passport) {
         passport.use(
             new LocalStrategy({usernameField: 'username', passwordField: 'pass'}, (username, password, done) => {
                 let logs = User.login(username, password);

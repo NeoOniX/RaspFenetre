@@ -8,8 +8,10 @@ $contrast-secondary: #0c2659;
 $contrast-tertiary: #5350d5;
 
 $info-red: #e74343;
+$info-red-hover: #d42d2d;
 $info-orange: #e78843;
 $info-green: #43e77a;
+$info-green-hover: #2ccf63;
 
 $main-primary: #6d5cde;
 $main-secondary: #4530b1;
@@ -18,23 +20,23 @@ $main-hover: #341ea7;
 
 // Fonts :
 @font-face {
-    font-family: "Gilroy Light";
-    src: url("../fonts/Gilroy-Light.ttf") format("truetype");
+    font-family: 'Gilroy Light';
+    src: url('../fonts/Gilroy-Light.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Gilroy Regular";
-    src: url("../fonts/Gilroy-Regular.ttf") format("truetype");
+    font-family: 'Gilroy Regular';
+    src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Gilroy Medium";
-    src: url("../fonts/Gilroy-Medium.ttf") format("truetype");
+    font-family: 'Gilroy Medium';
+    src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Gilroy Bold";
-    src: url("../fonts/Gilroy-Bold.ttf") format("truetype");
+    font-family: 'Gilroy Bold';
+    src: url('../fonts/Gilroy-Bold.ttf') format('truetype');
 }
 
 // Reset :
@@ -72,7 +74,11 @@ button {
 }
 
 // Imports :
-@import "./scss_files/_mixin.scss";
+@import './scss_files/_mixin.scss';
 
-@import "./scss_files/_navbar.scss";
-@import "./scss_files/_login.scss";
+@import './scss_files/_login.scss';
+@import './scss_files/_navbar.scss';
+@import './scss_files/_header.scss';
+@import './scss_files/_roomcard.scss';
+
+@import './scss_files/_togglebuttons.scss';
