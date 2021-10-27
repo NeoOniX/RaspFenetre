@@ -59,6 +59,9 @@ body {
     &.purple {
         background: linear-gradient(175deg, $main-primary 0%, $main-secondary 50%);
     }
+    &.need_padding {
+        padding-bottom: 105px;
+    }
 }
 
 a {
@@ -90,16 +93,19 @@ button {
 @media screen and (min-width: 768px) {
     body.need_padding {
         padding-left: 105px;
+        padding-bottom: 15px;
     }
 }
 
 // Imports :
 @import "./scss_files/_mixin.scss";
 
+@import "./scss_files/_error.scss";
+@import "./scss_files/_room.scss";
 @import "./scss_files/_login.scss";
+
 @import "./scss_files/_navbar.scss";
 @import "./scss_files/_header.scss";
 @import "./scss_files/_roomcard.scss";
-@import "./scss_files/_error.scss";
 
-@import "./scss_files/_togglebuttons.scss";
+@import "./scss_files/_buttons.scss";

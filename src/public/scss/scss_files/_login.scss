@@ -192,7 +192,7 @@
                                 }
                             }
                         }
-                        button[type='submit'] {
+                        button[type="submit"] {
                             @include flexMid;
 
                             border-radius: 50%;
@@ -237,7 +237,7 @@
 
 // Login Modal :
 #login.modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 25;

@@ -15,7 +15,7 @@ header {
                 @include GilroyBold;
             }
         }
-        button {
+        a {
             @include flexMid;
 
             border-radius: 20px;
