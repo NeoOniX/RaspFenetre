@@ -12,8 +12,7 @@ app.get('/home', function (req, res) {
 });
 
 app.use(function (req, res, next) {
-    res.setHeader('Content-Type', 'text/plain');
-    res.status(404).send('Page introuvable !');
+    res.render('error.ejs', { errorid: '404' });
 });
 
 app.listen(80);
