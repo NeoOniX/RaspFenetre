@@ -11,6 +11,11 @@
         </button>
         <% } %>
     </div>
+    <% if (typeof log != "undefined") { %>
+    <div class="log">
+        <p><%= log %></p>
+    </div>
+    <% } %>
     <div class="userstype">
         <h2>Administrateurs</h2>
         <ul class="userslist">
