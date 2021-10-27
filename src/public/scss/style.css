@@ -223,6 +223,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
   -webkit-column-gap: 15px;
           column-gap: 15px;
 }
@@ -251,6 +252,10 @@ button {
   border: none;
   width: 100%;
   cursor: pointer;
+}
+
+#login .userstype ul.userslist li#userlistelement form .informations button#logout {
+  display: none;
 }
 
 #login .userstype ul.userslist li#userlistelement form .login {
@@ -318,7 +323,7 @@ button {
   color: #b8c5d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form .login .input button#show_password {
+#login .userstype ul.userslist li#userlistelement form .login .input span#show_password {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -330,19 +335,20 @@ button {
           justify-content: center;
   max-width: 20px;
   max-height: 20px;
+  cursor: pointer;
 }
 
-#login .userstype ul.userslist li#userlistelement form .login .input button#show_password:hover svg {
+#login .userstype ul.userslist li#userlistelement form .login .input span#show_password:hover svg {
   fill: #5350d5;
 }
 
-#login .userstype ul.userslist li#userlistelement form .login .input button#show_password svg {
+#login .userstype ul.userslist li#userlistelement form .login .input span#show_password svg {
   fill: #0c2659;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-#login .userstype ul.userslist li#userlistelement form .login button[type="submit"] {
+#login .userstype ul.userslist li#userlistelement form .login button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,12 +366,12 @@ button {
   transition: 0.1s;
 }
 
-#login .userstype ul.userslist li#userlistelement form .login button[type="submit"]:hover {
+#login .userstype ul.userslist li#userlistelement form .login button[type='submit']:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#login .userstype ul.userslist li#userlistelement form .login button[type="submit"] svg {
+#login .userstype ul.userslist li#userlistelement form .login button[type='submit'] svg {
   fill: #f5f8ff;
   -webkit-transform: translateX(1px);
           transform: translateX(1px);
@@ -420,7 +426,7 @@ button {
   font-size: 18px;
 }
 
-#login.modal form .informations button {
+#login.modal form .informations button#logout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -430,19 +436,20 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  display: flex !important;
   min-width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid #f5f8ff;
 }
 
-#login.modal form .informations button:hover {
+#login.modal form .informations button#logout:hover {
   border: 1px solid #e74343;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-#login.modal form .informations button svg {
+#login.modal form .informations button#logout svg {
   fill: #f5f8ff;
 }
 

@@ -105,6 +105,7 @@
                         .global {
                             @include flexMid;
 
+                            width: 100%;
                             column-gap: 15px;
 
                             .logo {
@@ -131,6 +132,9 @@
                                 width: 100%;
                                 cursor: pointer;
                             }
+                        }
+                        button#logout {
+                            display: none;
                         }
                     }
                     .login {
@@ -171,11 +175,12 @@
                                     color: $grayscale-tertiary;
                                 }
                             }
-                            button#show_password {
+                            span#show_password {
                                 @include flexMid;
 
                                 max-width: 20px;
                                 max-height: 20px;
+                                cursor: pointer;
 
                                 &:hover svg {
                                     fill: $contrast-tertiary;
@@ -187,7 +192,7 @@
                                 }
                             }
                         }
-                        button[type="submit"] {
+                        button[type='submit'] {
                             @include flexMid;
 
                             border-radius: 50%;
@@ -247,9 +252,10 @@
         color: $grayscale-primary;
         font-size: 18px;
     }
-    form .informations button {
+    form .informations button#logout {
         @include flexMid;
 
+        display: flex !important;
         min-width: 40px;
         height: 40px;
         border-radius: 50%;
