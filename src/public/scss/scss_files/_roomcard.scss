@@ -52,7 +52,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
 
-            li.device_element:last-child:nth-child(2n) {
+            li.device_element:last-child:nth-child(2n + 1) {
                 grid-column: 1 / span 2;
             }
         }

@@ -249,6 +249,16 @@ section.room .sensors ul.devices_list li.sensors_number p {
   color: #f5f8ff;
 }
 
+section.room .sensors ul.devices_list li.device_element {
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+section.room .sensors ul.devices_list li.device_element:hover {
+  background: #341ea7;
+}
+
 section.room .sensors ul.devices_list li.device_element button#draggable {
   position: absolute;
   top: 15px;
@@ -800,6 +810,8 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+  z-index: 15;
   width: 100%;
   margin-bottom: 50px;
 }
@@ -1014,7 +1026,7 @@ header .right .logo #headerlogo {
       grid-template-columns: repeat(2, 1fr);
 }
 
-.roomcard .informations ul.devices_list li.device_element:last-child:nth-child(2n) {
+.roomcard .informations ul.devices_list li.device_element:last-child:nth-child(2n + 1) {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
@@ -1064,6 +1076,228 @@ ul.devices_list li.device_element #device_value {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
+  }
+}
+
+section.historique {
+  position: absolute;
+  bottom: 105px;
+  left: 15px;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(100% - 30px);
+  height: calc(100% - 282px);
+  border-radius: 20px;
+  border: 1px solid #f5f8ff;
+  background: linear-gradient(165deg, #f5f8ff 0%, #dbe9f6 100%);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  -webkit-clip-path: circle(0% at 50% 50%);
+          clip-path: circle(0% at 50% 50%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+section.historique.active {
+  -webkit-clip-path: circle(75% at 50% 50%);
+          clip-path: circle(75% at 50% 50%);
+}
+
+section.historique button#close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  z-index: 11;
+  top: -25px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: #1dcbf2;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+section.historique button#close:hover {
+  background: #5350d5;
+}
+
+section.historique button#close svg {
+  fill: #f5f8ff;
+}
+
+section.historique .historique_lists {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+section.historique .historique_lists ul.historique_list {
+  position: absolute;
+  top: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  padding: 15px;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
+
+section.historique .historique_lists ul.historique_list::-webkit-scrollbar {
+  display: none;
+}
+
+section.historique .historique_lists ul.historique_list#values {
+  left: -100%;
+}
+
+section.historique .historique_lists ul.historique_list#values.active {
+  left: 0;
+}
+
+section.historique .historique_lists ul.historique_list#errors {
+  left: 100%;
+}
+
+section.historique .historique_lists ul.historique_list#errors.active {
+  left: 0;
+}
+
+section.historique .historique_lists ul.historique_list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 0;
+  width: 100%;
+}
+
+section.historique .historique_lists ul.historique_list li:not(:first-child) {
+  border-bottom: 1px solid #dbe9f6;
+}
+
+section.historique .historique_lists ul.historique_list li p {
+  font-family: "Gilroy Regular";
+  font-weight: 400;
+  width: 100%;
+  font-size: 18px;
+  color: #0c2659;
+}
+
+section.historique .historique_lists ul.historique_list li span {
+  font-family: "Gilroy Light";
+  font-weight: 300;
+  font-size: 14px;
+  color: #b8c5d5;
+}
+
+section.historique .historique_choices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+  padding: 15px;
+  width: 100%;
+}
+
+section.historique .historique_choices button.historique_choice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  background: #f5f8ff;
+  border: 1px solid #f5f8ff;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+section.historique .historique_choices button.historique_choice:hover {
+  background: #dbe9f6;
+}
+
+section.historique .historique_choices button.historique_choice.active {
+  background: linear-gradient(285deg, #f5f8ff 0%, #dbe9f6 100%);
+}
+
+section.historique .historique_choices button.historique_choice#values span {
+  background: #5350d5;
+}
+
+section.historique .historique_choices button.historique_choice#errors span {
+  background: #e74343;
+}
+
+section.historique .historique_choices button.historique_choice span {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  border-radius: 10px;
+  padding: 1px 5px;
+  border: 1px solid #f5f8ff;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+section.historique .historique_choices button.historique_choice span p {
+  font-family: "Gilroy Light";
+  font-weight: 300;
+  color: #f5f8ff;
+}
+
+section.historique .historique_choices button.historique_choice h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+  color: #0c2659;
+}
+
+@media screen and (min-width: 768px) {
+  section.historique {
+    left: 105px;
+    bottom: 15px;
+    width: calc(100% - 120px);
+    height: calc(100% - 193px);
   }
 }
 

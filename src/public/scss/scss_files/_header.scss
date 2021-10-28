@@ -1,6 +1,8 @@
 header {
     @include flexBetween;
 
+    position: relative;
+    z-index: 15;
     width: 100%;
     margin-bottom: 50px;
 

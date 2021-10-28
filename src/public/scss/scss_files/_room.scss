@@ -68,18 +68,27 @@ section.room {
                 }
             }
 
-            li.device_element button#draggable {
-                position: absolute;
-                top: 15px;
-                right: 15px;
+            li.device_element {
+                cursor: pointer;
+                transition: 0.2s;
 
-                &:hover svg {
-                    fill: $contrast-primary;
+                &:hover {
+                    background: $main-hover;
                 }
 
-                svg {
-                    fill: $grayscale-primary;
-                    transition: 0.2s;
+                button#draggable {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+
+                    &:hover svg {
+                        fill: $contrast-primary;
+                    }
+
+                    svg {
+                        fill: $grayscale-primary;
+                        transition: 0.2s;
+                    }
                 }
             }
         }

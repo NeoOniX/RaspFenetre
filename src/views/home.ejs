@@ -2,11 +2,10 @@
 <html lang="fr">
     <%- include('./partials/head', {title: "Accueil"}); %>
     <body class="light need_padding">
-        <%- include('./partials/header', {name: "Pseudo", icon: "logo.png", backoption: false}); %> 
-        <%- include('./partials/userslogin', {loginpagetitle: "Choix du compte"}); %>
+        <%- include('./partials/header', {name: "Pseudo", icon: "logo.png", backoption: false}); %> <%- include('./partials/userslogin',
+        {loginpagetitle: "Choix du compte"}); %>
         <div class="roomlist"><%- include('./partials/roomcard', {roomname: "Classe E2"}); %></div>
         <%- include('./partials/navbar'); %>
-        <script type="text/javascript" src="js/login.js"></script>
         <script type="text/javascript" src="js/home.js"></script>
     </body>
 </html>
