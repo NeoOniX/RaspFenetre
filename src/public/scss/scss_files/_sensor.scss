@@ -1,0 +1,129 @@
+section.sensor {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width: 100%;
+
+    .top {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        h1 {
+            @include GilroyMedium;
+
+            width: 100%;
+            font-size: 22px;
+            border-radius: 15px;
+            color: $grayscale-primary;
+            padding: 10px;
+            background: $main-primary;
+            text-align: center;
+            box-shadow: 0px 0px 25px rgba($color: #000000, $alpha: 0.15);
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            column-gap: 10px;
+        }
+    }
+    .informations {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+
+        h2 {
+            @include GilroyMedium;
+
+            font-size: 22px;
+            color: $grayscale-primary;
+        }
+        .info {
+            @include flexMid;
+
+            position: relative;
+            width: 100%;
+            min-height: 100px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.15);
+
+            &#type {
+                padding: 15px;
+                justify-content: flex-start;
+                min-height: 60px;
+
+                h3 {
+                    @include GilroyMedium;
+
+                    font-size: 22px;
+                }
+
+                span {
+                    bottom: -15px;
+                    right: 15px;
+                    top: auto;
+                    left: auto;
+                }
+            }
+            &#room {
+                padding: 15px;
+                justify-content: space-between;
+                min-height: 60px;
+
+                h3 {
+                    @include GilroyMedium;
+
+                    font-size: 22px;
+                }
+            }
+
+            span {
+                @include flexMid;
+
+                position: absolute;
+                top: -15px;
+                left: 15px;
+                z-index: 1;
+                height: 30px;
+                padding: 0 15px;
+                border-radius: 20px;
+                background: $contrast-primary;
+                box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.2);
+
+                p {
+                    @include GilroyRegular;
+
+                    font-size: 18px;
+                    color: $grayscale-primary;
+                }
+            }
+            h3 {
+                @include GilroyBold;
+
+                color: $grayscale-primary;
+                font-size: 32px;
+
+                &.no_battery {
+                    @include GilroyMedium;
+
+                    color: $info-red;
+                }
+
+                &#green {
+                    color: $info-green;
+                }
+                &#orange {
+                    color: $info-orange;
+                }
+                &#red {
+                    color: $info-red;
+                }
+            }
+        }
+        .global {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 15px;
+        }
+    }
+}

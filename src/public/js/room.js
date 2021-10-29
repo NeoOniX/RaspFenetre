@@ -17,7 +17,7 @@ openLoginBtn.addEventListener('click', () => loginModal.classList.add('active'))
 closeLoginBtn.addEventListener('click', () => loginModal.classList.remove('active'));
 
 // Change Toggle On / Off buttons :
-const roomToggleBtn = document.querySelector('section.room .top .buttons button#onoff');
+const roomToggleBtn = document.querySelector('.top .buttons button#onoff');
 
 roomToggleBtn.addEventListener('click', () => {
     roomToggleBtn.classList.toggle('down');

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <%- include('./partials/head', {title: "Accueil"}); %>
+    <%- include('./partials/head', {title: roomname }); %>
     <body class="light need_padding">
-        <%- include('./partials/header', {name: "Pseudo", icon: "logo.png", backoption: true}); %> <%- include('./partials/userslogin',
-        {loginpagetitle: "Choix du compte"}); %>
+        <%- include('./partials/header', {name: "Pseudo", icon: "logo.png", backoption: true, backlink: '/home'}); %> <%-
+        include('./partials/userslogin', {loginpagetitle: "Choix du compte"}); %>
         <section class="room">
             <div class="top">
                 <h1><%= roomname %></h1>

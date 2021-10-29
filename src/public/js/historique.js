@@ -1,6 +1,6 @@
 const historiqueModal = document.querySelector('section.historique');
-const showHistoriqueBtn = document.querySelector('section.room .top .buttons button#historique');
-const closeHistoriqueBtn = document.querySelector('section.historique button#close');
+const showHistoriqueBtn = document.querySelector('.top .buttons button#historique');
+const closeHistoriqueBtn = document.querySelector('button#close');
 
 // Show Historique :
 showHistoriqueBtn.addEventListener('click', () => historiqueModal.classList.add('active'));

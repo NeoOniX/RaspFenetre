@@ -78,217 +78,6 @@ button {
   }
 }
 
-section.error {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: calc(100vh - 30px);
-}
-
-section.error h1 {
-  font-family: "Gilroy Bold";
-  font-weight: 700;
-  font-size: 128px;
-  color: #0c2659;
-}
-
-section.error .border_card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  max-width: 414px;
-  border-radius: 20px;
-  border: 1px solid #4530b1;
-  padding: 15px;
-}
-
-section.error .border_card a {
-  font-family: "Gilroy Medium";
-  font-weight: 500;
-  width: 100%;
-  color: #f5f8ff;
-  text-align: center;
-  font-size: 24px;
-  background: #4530b1;
-  border-radius: 15px;
-  padding: 15px;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-section.error .border_card a:hover {
-  background: #341ea7;
-}
-
-section.room {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 15px;
-  width: 100%;
-}
-
-section.room .top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 10px;
-}
-
-section.room .top h1 {
-  font-family: "Gilroy Medium";
-  font-weight: 500;
-  width: 100%;
-  font-size: 22px;
-  border-radius: 15px;
-  color: #f5f8ff;
-  padding: 10px;
-  background: #4530b1;
-  text-align: center;
-  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-}
-
-section.room .top .buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-column-gap: 10px;
-          column-gap: 10px;
-}
-
-section.room .sensors {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 15px;
-}
-
-section.room .sensors h2 {
-  font-family: "Gilroy Medium";
-  font-weight: 500;
-  font-size: 22px;
-  color: #0c2659;
-}
-
-section.room .sensors ul.devices_list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 15px;
-  width: 100%;
-  border-radius: 20px;
-  border: 1px solid #4530b1;
-  padding: 10px;
-}
-
-section.room .sensors ul.devices_list li.sensors_number {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  top: -15px;
-  right: 15px;
-  z-index: 1;
-  height: 30px;
-  padding: 0 15px;
-  border-radius: 20px;
-  background: #1dcbf2;
-  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-}
-
-section.room .sensors ul.devices_list li.sensors_number p {
-  font-family: "Gilroy Regular";
-  font-weight: 400;
-  font-size: 18px;
-  color: #f5f8ff;
-}
-
-section.room .sensors ul.devices_list li.device_element {
-  cursor: pointer;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-section.room .sensors ul.devices_list li.device_element:hover {
-  background: #341ea7;
-}
-
-section.room .sensors ul.devices_list li.device_element button#draggable {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-section.room .sensors ul.devices_list li.device_element button#draggable:hover svg {
-  fill: #1dcbf2;
-}
-
-section.room .sensors ul.devices_list li.device_element button#draggable svg {
-  fill: #f5f8ff;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-@media screen and (min-width: 768px) {
-  section.room .sensors ul.devices_list {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
-  section.room .sensors ul.devices_list li.device_element:last-child:nth-child(2n + 2) {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-column: 1 / span 2;
-  }
-}
-
 #login {
   position: relative;
   width: 100%;
@@ -706,6 +495,399 @@ section.room .sensors ul.devices_list li.device_element button#draggable svg {
   }
 }
 
+section.room {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+  width: 100%;
+}
+
+section.room .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+}
+
+section.room .top h1 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  font-size: 22px;
+  border-radius: 15px;
+  color: #f5f8ff;
+  padding: 10px;
+  background: #4530b1;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+section.room .top .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+section.room .sensors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+}
+
+section.room .sensors h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+  color: #0c2659;
+}
+
+section.room .sensors ul.devices_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #4530b1;
+  padding: 10px;
+}
+
+section.room .sensors ul.devices_list li.sensors_number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: -15px;
+  right: 15px;
+  z-index: 1;
+  height: 30px;
+  padding: 0 15px;
+  border-radius: 20px;
+  background: #1dcbf2;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+section.room .sensors ul.devices_list li.sensors_number p {
+  font-family: "Gilroy Regular";
+  font-weight: 400;
+  font-size: 18px;
+  color: #f5f8ff;
+}
+
+section.room .sensors ul.devices_list li.device_element {
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+section.room .sensors ul.devices_list li.device_element:hover {
+  background: #341ea7;
+}
+
+section.room .sensors ul.devices_list li.device_element button#draggable {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+section.room .sensors ul.devices_list li.device_element button#draggable:hover svg {
+  fill: #1dcbf2;
+}
+
+section.room .sensors ul.devices_list li.device_element button#draggable svg {
+  fill: #f5f8ff;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+@media screen and (min-width: 768px) {
+  section.room .sensors ul.devices_list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  section.room .sensors ul.devices_list li.device_element:last-child:nth-child(2n + 2) {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / span 2;
+  }
+}
+
+section.sensor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+  width: 100%;
+}
+
+section.sensor .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+}
+
+section.sensor .top h1 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  font-size: 22px;
+  border-radius: 15px;
+  color: #f5f8ff;
+  padding: 10px;
+  background: #6d5cde;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+section.sensor .top .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+section.sensor .informations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+}
+
+section.sensor .informations h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+  color: #f5f8ff;
+}
+
+section.sensor .informations .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+section.sensor .informations .info#type {
+  padding: 15px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  min-height: 60px;
+}
+
+section.sensor .informations .info#type h3 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+}
+
+section.sensor .informations .info#type span {
+  bottom: -15px;
+  right: 15px;
+  top: auto;
+  left: auto;
+}
+
+section.sensor .informations .info#room {
+  padding: 15px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 60px;
+}
+
+section.sensor .informations .info#room h3 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+}
+
+section.sensor .informations .info span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  z-index: 1;
+  height: 30px;
+  padding: 0 15px;
+  border-radius: 20px;
+  background: #1dcbf2;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+section.sensor .informations .info span p {
+  font-family: "Gilroy Regular";
+  font-weight: 400;
+  font-size: 18px;
+  color: #f5f8ff;
+}
+
+section.sensor .informations .info h3 {
+  font-family: "Gilroy Bold";
+  font-weight: 700;
+  color: #f5f8ff;
+  font-size: 32px;
+}
+
+section.sensor .informations .info h3.no_battery {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  color: #e74343;
+}
+
+section.sensor .informations .info h3#green {
+  color: #43e77a;
+}
+
+section.sensor .informations .info h3#orange {
+  color: #e78843;
+}
+
+section.sensor .informations .info h3#red {
+  color: #e74343;
+}
+
+section.sensor .informations .global {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+}
+
+section.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: calc(100vh - 30px);
+}
+
+section.error h1 {
+  font-family: "Gilroy Bold";
+  font-weight: 700;
+  font-size: 128px;
+  color: #0c2659;
+}
+
+section.error .border_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  max-width: 414px;
+  border-radius: 20px;
+  border: 1px solid #4530b1;
+  padding: 15px;
+}
+
+section.error .border_card a {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  color: #f5f8ff;
+  text-align: center;
+  font-size: 24px;
+  background: #4530b1;
+  border-radius: 15px;
+  padding: 15px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+section.error .border_card a:hover {
+  background: #341ea7;
+}
+
 body.light nav {
   border: 1px solid #4530b1;
   background: linear-gradient(94.93deg, #4530b1 0%, #3e2ea6 42.96%);
@@ -941,6 +1123,30 @@ header .right .logo:hover {
 header .right .logo #headerlogo {
   width: 100%;
   height: 100%;
+}
+
+body.purple header .left a {
+  border: 1px solid #f5f8ff;
+}
+
+body.purple header .left a:hover {
+  background: #6d5cde;
+}
+
+body.purple header .left a svg {
+  fill: #f5f8ff;
+}
+
+body.purple header .right #headernotifications {
+  border: 1px solid #f5f8ff;
+}
+
+body.purple header .right #headernotifications:hover {
+  background: #6d5cde;
+}
+
+body.purple header .right #headernotifications svg {
+  fill: #f5f8ff;
 }
 
 .roomlist {
@@ -1371,5 +1577,13 @@ section.historique .historique_choices button.historique_choice h2 {
 button#draggable {
   cursor: -webkit-grab;
   cursor: grab;
+}
+
+body.purple .bluebutton {
+  background: #6d5cde;
+}
+
+body.purple .bluebutton:hover {
+  background: #4530b1;
 }
 /*# sourceMappingURL=style.css.map */

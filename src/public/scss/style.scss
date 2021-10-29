@@ -100,9 +100,10 @@ button {
 // Imports :
 @import "./scss_files/_mixin.scss";
 
-@import "./scss_files/_error.scss";
-@import "./scss_files/_room.scss";
 @import "./scss_files/_login.scss";
+@import "./scss_files/_room.scss";
+@import "./scss_files/_sensor.scss";
+@import "./scss_files/_error.scss";
 
 @import "./scss_files/_navbar.scss";
 @import "./scss_files/_header.scss";

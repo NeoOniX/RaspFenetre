@@ -99,3 +99,31 @@ header {
         }
     }
 }
+
+// Color :
+body.purple {
+    header {
+        .left a {
+            border: 1px solid $grayscale-primary;
+
+            &:hover {
+                background: $main-primary;
+            }
+
+            svg {
+                fill: $grayscale-primary;
+            }
+        }
+        .right #headernotifications {
+            border: 1px solid $grayscale-primary;
+
+            &:hover {
+                background: $main-primary;
+            }
+
+            svg {
+                fill: $grayscale-primary;
+            }
+        }
+    }
+}
