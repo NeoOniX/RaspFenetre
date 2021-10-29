@@ -1,5 +1,6 @@
 // On / Off :
-.togglebuttons {
+.togglebuttons,
+.addbuttons {
     @include flexMid;
 
     height: 40px;

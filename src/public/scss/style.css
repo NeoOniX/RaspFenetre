@@ -676,7 +676,7 @@ section.sensor .top h1 {
   border-radius: 15px;
   color: #f5f8ff;
   padding: 10px;
-  background: #6d5cde;
+  background: #5350d5;
   text-align: center;
   -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
@@ -825,6 +825,83 @@ section.sensor .informations .global {
       grid-template-columns: repeat(2, 1fr);
   -webkit-column-gap: 15px;
           column-gap: 15px;
+}
+
+section.settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+}
+
+section.settings h1 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  font-size: 22px;
+  border-radius: 15px;
+  color: #f5f8ff;
+  padding: 10px;
+  background: #5350d5;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+section.settings #settings_element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+  padding: 15px;
+  border: 1px solid #f5f8ff;
+  border-radius: 20px;
+}
+
+section.settings #settings_element .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section.settings #settings_element .header h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 24px;
+  color: #f5f8ff;
+}
+
+section.settings #settings_element #setting {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+  color: #f5f8ff;
+  border-radius: 15px;
+  padding: 10px;
+  background: #5350d5;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+section.settings #settings_element #setting:hover {
+  background: #6d5cde;
 }
 
 section.error {
@@ -1123,6 +1200,10 @@ header .right .logo:hover {
 header .right .logo #headerlogo {
   width: 100%;
   height: 100%;
+}
+
+body.purple header .left p {
+  color: #f5f8ff;
 }
 
 body.purple header .left a {
@@ -1507,7 +1588,8 @@ section.historique .historique_choices button.historique_choice h2 {
   }
 }
 
-.togglebuttons {
+.togglebuttons,
+.addbuttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1528,20 +1610,24 @@ section.historique .historique_choices button.historique_choice h2 {
   transition: 0.2s;
 }
 
-.togglebuttons:hover {
+.togglebuttons:hover,
+.addbuttons:hover {
   background: rgba(44, 207, 99, 0.8);
 }
 
-.togglebuttons.down {
+.togglebuttons.down,
+.addbuttons.down {
   border: 1px solid #e74343;
   background: rgba(231, 67, 67, 0.8);
 }
 
-.togglebuttons.down:hover {
+.togglebuttons.down:hover,
+.addbuttons.down:hover {
   background: rgba(212, 45, 45, 0.8);
 }
 
-.togglebuttons svg {
+.togglebuttons svg,
+.addbuttons svg {
   fill: #f5f8ff;
 }
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('./partials/head', {title: "Paramètres"}); %>
+    <body class="purple need_padding">
+        <%- include('./partials/header', {name: "Pseudo", icon: "logo.png", backoption: false}); %> <%- include('./partials/userslogin',
+        {loginpagetitle: "Choix du compte"}); %>
+        <section class="settings">
+            <h1>Paramètres</h1>
+            <article id="settings_element">
+                <div class="header">
+                    <h2>Comptes</h2>
+                    <button class="addbuttons">
+                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19.5384 8.9318H11.0682L11.0682 0.461669H8.93176L8.93176 8.9318H0.461635L0.461635 11.0683L8.93176 11.0683L8.93176 19.5384H11.0682L11.0682 11.0683L19.5384 11.0683L19.5384 8.9318Z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div id="setting">Liste des comptes</div>
+            </article>
+            <article id="settings_element">
+                <div class="header">
+                    <h2>Salles</h2>
+                    <button class="addbuttons">
+                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19.5384 8.9318H11.0682L11.0682 0.461669H8.93176L8.93176 8.9318H0.461635L0.461635 11.0683L8.93176 11.0683L8.93176 19.5384H11.0682L11.0682 11.0683L19.5384 11.0683L19.5384 8.9318Z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div id="setting">Liste des salles</div>
+            </article>
+        </section>
+        <%- include('./partials/navbar'); %>
+        <script type="text/javascript" src="js/home.js"></script>
+    </body>
+</html>

@@ -103,15 +103,20 @@ header {
 // Color :
 body.purple {
     header {
-        .left a {
-            border: 1px solid $grayscale-primary;
-
-            &:hover {
-                background: $main-primary;
+        .left {
+            p {
+                color: $grayscale-primary;
             }
+            a {
+                border: 1px solid $grayscale-primary;
 
-            svg {
-                fill: $grayscale-primary;
+                &:hover {
+                    background: $main-primary;
+                }
+
+                svg {
+                    fill: $grayscale-primary;
+                }
             }
         }
         .right #headernotifications {

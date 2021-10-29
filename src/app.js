@@ -15,6 +15,10 @@ app.get('/room', function (req, res) {
     res.render('room.ejs', { roomname: 'Classe E2', sensorsnumber: '3' });
 });
 
+app.get('/settings', function (req, res) {
+    res.render('settings.ejs');
+});
+
 app.get('/sensor', function (req, res) {
     res.render('sensor.ejs', {
         sensorname: 'Température sensor - LM35',
