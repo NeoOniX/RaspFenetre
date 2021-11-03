@@ -24,9 +24,8 @@ class User {
         return new Promise((resolve, reject) => {
             let users = this.list();
             let id = IDGenerator.generate();
-            let dupID = users.filter((user) => user.id == id)[0];
     
-            while (id == dupID) {
+            while (users.filter((user) => user.id == id).length > 0) {
                 id = IDGenerator.generate();
             }
     
@@ -78,6 +77,13 @@ class User {
                 });
             }
         });
+    }
+
+    static delete (id) {
+        if (id.id) id=id.id;
+        let users = this.list();
+        users = users.filter((user) => user.id != id);
+        writeFileSync(join(__dirname, "../../store/users.json"), stringify(users, null, 4));
     }
 }
 

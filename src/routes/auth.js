@@ -1,8 +1,7 @@
 const express = require('express');
 const { existsSync, createWriteStream } = require('fs');
 const { join } = require('path');
-const { Classes } = require('../utils')
-const { User } = Classes;
+const { User } = require('../utils');
 
 let router = express.Router();
 

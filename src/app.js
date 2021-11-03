@@ -6,19 +6,45 @@ const compression = require('compression');
 const cors = require('cors');
 const busboy = require('connect-busboy');
 const favicon = require('serve-favicon');
+const http = require('http');
 const config = require('../config');
 const { join } = require('path');
-const { Tools, Classes } = require('./utils');
-const { Scan, AuthPassport } = Tools;
-const { User, Device, Room } = Classes;
+const { Scan, AuthPassport, User, Device, Room } = require('./utils');
 let passport = require('passport');
 
 // User
-// let u = User.register("test", "Gauthier", "clear");
+// let u = User.register("0_logo.png", "Utilisateur", "test");
 // console.log(User.login("Gauthier", "clear"));
 
+let lastDevices = Device.list();
+
 // IP Scan
-// Scan.scan(config.network.CIDR, config.network.options).then(console.log);
+Scan.scan(config.network.CIDR, config.network.options)
+.then((ips) => {
+    for (let ip of ips) {
+        Device.identify(ip)
+        .then((identity) => {
+            if (identity.found) {
+                lastDevices = lastDevices.filter((device) => device != identity.device.id);
+            } else {
+                let url = new URL(`http://${ip}/info`);
+                http.get(url, res => {
+                    let resp = "";
+                    res.on("data", data => { resp += data });
+                    res.on("end", () => {
+                        JSON.parse(resp);
+                    });
+                });
+            }
+        })
+        .catch((err) => {
+            throw err;
+        });
+    }
+})
+.catch((err) => {
+    throw err;
+});
 
 // Local Passport
 AuthPassport.setAsLocal(passport);

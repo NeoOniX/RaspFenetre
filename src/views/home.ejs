@@ -2,7 +2,7 @@
 <html lang="fr">
     <%- include('./partials/head', {title: "Accueil"}); %>
     <body class="light">
-        <%- include('./partials/header', {pseudo: "Pseudo", logo: "logo.png"}); %>
+        <%- include('./partials/header', { ...user }); %>
         <div class="roomlist">
             <%- include('./partials/roomcard', {roomname: "Classe E2"}); %><%- include('./partials/roomcard', {roomname: "Classe E2"}); %>
         </div>

@@ -8,7 +8,10 @@ function getRoute (...args) {
     });
 
     router.get('/home', (req, res) => {
-        res.render('home.ejs');
+        if (!req.user) {
+            res.redirect('/auth/login');
+        }
+        res.render('home.ejs', { user: req.user });
     });
 
     return router;
