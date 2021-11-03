@@ -1,16 +1,12 @@
+const { Device } = require('../utils');
 const express = require('express');
 
 let router = express.Router();
 
 function getRoute (...args) {
-    router.get('/send', (req, res) => {
-        console.log(`API Send | GET | Valeur = ${req.query.valeur}`);
-        res.status(200);
-        res.end();
-    });
 
-    router.post('/send', (req, res) => {
-        console.log(`API Send | POST | Valeur1 = ${req.body.valeur1} | Valeur2 = ${req.body.valeur2}`);
+    router.post('/sensor', (req, res) => {
+        Device.log(req.ip, req.body);
         res.status(200);
         res.end();
     });

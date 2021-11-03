@@ -56,6 +56,16 @@ class Device {
         devices = devices.filter((device) => device.id != id);
         writeFileSync(join(__dirname, "../../store/devices.json"), stringify(devices, null, 4));
     }
+
+    static log (ip, log) {
+        let devices = this.list();
+        let device = devices.filter((device) => device.ip == ip).at(-1);
+
+        if (device) {
+            device.logs.push(log);
+            writeFileSync(join(__dirname, "../../store/devices.json"), stringify(devices, null, 4));
+        }
+    }
 }
 
 module.exports = Device;
