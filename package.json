@@ -18,6 +18,7 @@
     "express-minify": "^1.0.0",
     "express-session": "^1.17.2",
     "get-ip-range": "^4.0.1",
+    "node-fetch": "^2.6.6",
     "passport": "^0.5.0",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.5.0"

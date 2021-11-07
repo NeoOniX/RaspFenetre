@@ -1,6 +1,8 @@
 header {
     @include flexBetween;
 
+    position: relative;
+    z-index: 15;
     width: 100%;
     margin-bottom: 50px;
 
@@ -15,7 +17,7 @@ header {
                 @include GilroyBold;
             }
         }
-        button {
+        a {
             @include flexMid;
 
             border-radius: 20px;
@@ -93,6 +95,39 @@ header {
             #headerlogo {
                 width: 100%;
                 height: 100%;
+            }
+        }
+    }
+}
+
+// Color :
+body.purple {
+    header {
+        .left {
+            p {
+                color: $grayscale-primary;
+            }
+            a {
+                border: 1px solid $grayscale-primary;
+
+                &:hover {
+                    background: $main-primary;
+                }
+
+                svg {
+                    fill: $grayscale-primary;
+                }
+            }
+        }
+        .right #headernotifications {
+            border: 1px solid $grayscale-primary;
+
+            &:hover {
+                background: $main-primary;
+            }
+
+            svg {
+                fill: $grayscale-primary;
             }
         }
     }

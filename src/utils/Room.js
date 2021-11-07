@@ -8,6 +8,17 @@ class Room {
         return parse(readFileSync(join(__dirname, "../../store/rooms.json")));
     }
 
+    static deserialize (id) {
+        let rooms = this.list();
+        let room = rooms.filter((room) => room.id == id)[0];
+
+        if (room) {
+            return room;
+        } else {
+            return {};
+        }
+    }
+
     static register (name) {
         return new Promise((resolve, reject) => {
             let rooms = this.list();

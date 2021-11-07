@@ -25,7 +25,7 @@ function getRoute (...args) {
                 }
                 let fstream = createWriteStream(join(__dirname, '../public/img/', fieldname, fname));
 
-                user.icon = `/public/img/${fieldname}/${fname}`;
+                user.icon = fname;
 
                 file.pipe(fstream);
             }
@@ -39,19 +39,25 @@ function getRoute (...args) {
     });
 
     router.get('/login', (req, res) => {
-        res.render('login', { users: User.list() });
+        let users = User.list();
+        if (req.user) {
+            users.filter((user) => user.id == req.user.id)[0].connected = true;
+        }
+        res.render('login', { users });
     });
 
     router.post('/login', (req, res, next) => {
         if (req.user) req.logOut();
+        if (req.query.logout) {
+            return res.render('login', { users: User.list(), log: "Déconnecté", ...req.body });
+        }
         args[0].authenticate('local', (err, user, info) => {
             if (err) {
                 console.log(err);
                 next(err);
             }
             if (!user) {
-                console.log(info.message);
-                return res.render('login', { users: User.list(), msg: info.message, ...req.body });
+                return res.render('login', { users: User.list(), log: info.message, ...req.body });
             }
             req.logIn(user, (err) => {
                 if (err) {

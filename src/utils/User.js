@@ -50,10 +50,10 @@ class User {
         });
     }
 
-    static login (name, pass) {
+    static login (id, pass) {
         return new Promise((resolve, reject) => {
             let users = this.list();
-            let user = users.filter((user) => user.name == name)[0];
+            let user = users.filter((user) => user.id == id)[0];
     
             if (user) {
                 bcrypt.compare(pass, user.pass, (err, isMatch) => {

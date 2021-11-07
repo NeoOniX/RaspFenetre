@@ -6,15 +6,14 @@ const compression = require('compression');
 const cors = require('cors');
 const busboy = require('connect-busboy');
 const favicon = require('serve-favicon');
-const http = require('http');
 const config = require('../config');
+const fetch = require('node-fetch');
 const { join } = require('path');
 const { Scan, AuthPassport, User, Device, Room } = require('./utils');
 let passport = require('passport');
 
 // User
 // let u = User.register("0_logo.png", "Utilisateur", "test");
-// console.log(User.login("Gauthier", "clear"));
 
 let lastDevices = Device.list();
 
@@ -25,28 +24,20 @@ Scan.scan(config.network.CIDR, config.network.options)
         Device.identify(ip)
         .then((identity) => {
             if (identity.found) {
-                console.log("Device found");
                 lastDevices = lastDevices.filter((device) => device.id != identity.device.id);
             } else {
                 let url = new URL(`http://${ip}/info`);
-                http.get(url, res => {
-                    let resp = "";
-                    res.on("data", data => { resp += data });
-                    res.on("end", () => {
-                        let info = JSON.parse(resp);
-                        Device.register(ip, info.type, info.type).then((device) => {
-                            console.log("Device registered");
-                        });
-                    });
-                });
+                fetch(url).then((res) => {
+                    return res.json();
+                }).then((data) => {
+                    Device.register(ip, data.type, data.type);
+                }).catch((err) => { });
             }
         });
     }
-    console.log("After for loop");
 }).then(() => {
-    console.log("Then");
     for (let device of lastDevices) {
-        console.log(device);
+        Device.log(device.ip, { type: "error", value: "Communication impossible"})
     }
 }).then(() => {
     // Local Passport
@@ -77,10 +68,16 @@ Scan.scan(config.network.CIDR, config.network.options)
     .use(passport.session());
 
     // Routes
-    app.use("/", require('./routes/home')());
-    app.use("/init", require('./routes/init')(passport));
-    app.use("/auth", require('./routes/auth')(passport));
-    app.use("/api", require('./routes/api')());
+    app
+    .use("/", require('./routes/home')())
+    .use("/init", require('./routes/init')(passport))
+    .use("/auth", require('./routes/auth')(passport))
+    .use("/room", require('./routes/room')())
+    .use("/device", require('./routes/device')())
+    .use("/api", require('./routes/api')())
+    .use((req, res, next) => {
+        res.render('error.ejs', { errorid: '404' });
+    });
 
     // Server start
     let server = app.listen(8080, () => {

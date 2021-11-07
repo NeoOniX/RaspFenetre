@@ -4,6 +4,38 @@
         "icon": "0_logo.png",
         "name": "Gauthier",
         "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
+        "perms": ["administrator"],
+        "prefs": []
+    },
+    {
+        "id": "jbvjtk496ta",
+        "icon": "0_logo.png",
+        "name": "Gauthier",
+        "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
+        "perms": ["administrator"],
+        "prefs": []
+    },
+    {
+        "id": "jbvjtk496tb",
+        "icon": "0_logo.png",
+        "name": "Gauthier",
+        "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
+        "perms": ["administrator"],
+        "prefs": []
+    },
+    {
+        "id": "jbvjtk496tc",
+        "icon": "0_logo.png",
+        "name": "Gauthier",
+        "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
+        "perms": [],
+        "prefs": []
+    },
+    {
+        "id": "jbvjtk496td",
+        "icon": "0_logo.png",
+        "name": "Gauthier",
+        "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
         "perms": [],
         "prefs": []
     }

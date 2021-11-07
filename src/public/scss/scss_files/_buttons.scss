@@ -1,0 +1,64 @@
+// On / Off :
+.togglebuttons,
+.addbuttons {
+    @include flexMid;
+
+    height: 40px;
+    min-width: 40px;
+    border-radius: 100%;
+    border: 1px solid $info-green;
+    background: rgba($color: $info-green, $alpha: 0.8);
+    box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.2);
+    transition: 0.2s;
+
+    &:hover {
+        background: rgba($color: $info-green-hover, $alpha: 0.8);
+    }
+
+    &.down {
+        border: 1px solid $info-red;
+        background: rgba($color: $info-red, $alpha: 0.8);
+
+        &:hover {
+            background: rgba($color: $info-red-hover, $alpha: 0.8);
+        }
+    }
+
+    svg {
+        fill: $grayscale-primary;
+    }
+}
+
+// Button :
+.bluebutton {
+    @include flexMid;
+
+    height: 40px;
+    min-width: 40px;
+    border-radius: 100%;
+    border: 1px solid $grayscale-primary;
+    background: $main-secondary;
+    box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.25);
+    transition: 0.2s;
+
+    &:hover {
+        background: $main-hover;
+    }
+
+    svg {
+        fill: $grayscale-primary;
+    }
+}
+
+button#draggable {
+    cursor: grab;
+}
+
+// Color :
+body.purple .bluebutton {
+    background: $main-primary;
+
+    &:hover {
+        background: $main-secondary;
+    }
+}

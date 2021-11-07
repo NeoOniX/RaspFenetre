@@ -8,6 +8,17 @@ class Device {
         return parse(readFileSync(join(__dirname, "../../store/devices.json")));
     }
 
+    static deserialize (id) {
+        let devices = this.list();
+        let device = devices.filter((device) => device.id == id)[0];
+
+        if (device) {
+            return device;
+        } else {
+            return;
+        }
+    }
+
     static register (ip, name, type) {
         return new Promise((resolve, reject) => {
             let devices = this.list();

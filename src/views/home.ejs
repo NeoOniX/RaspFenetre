@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
     <%- include('./partials/head', {title: "Accueil"}); %>
-    <body class="light">
-        <%- include('./partials/header', { ...user }); %>
+    <body class="light need_padding">
+        <%- include('./partials/header', {...user, backoption: false}); %>
+        <%- include('./partials/userslogin', {users, loginpagetitle: "Choix du compte"}); %>
         <div class="roomlist">
-            <%- include('./partials/roomcard', {roomname: "Classe E2"}); %><%- include('./partials/roomcard', {roomname: "Classe E2"}); %>
+            <%- include('./partials/roomcard', {roomname: "Classe E2"}); %>
         </div>
-        <%- include('./partials/navbar'); %>
+        <%- include('./partials/navbar', { active: "home" }); %>
+        <script type="text/javascript" src="../js/home.js"></script>
     </body>
 </html>

@@ -4,8 +4,8 @@ const User = require('./User');
 class AuthPassport {
     static setAsLocal(passport) {
         passport.use(
-            new LocalStrategy({usernameField: 'username', passwordField: 'pass'}, (username, password, done) => {
-                User.login(username, password).then((logs) => {
+            new LocalStrategy({usernameField: 'id', passwordField: 'pass'}, (id, password, done) => {
+                User.login(id, password).then((logs) => {
                     if (logs.loggedIn) {
                         return done(null, logs.user);
                     } else {
