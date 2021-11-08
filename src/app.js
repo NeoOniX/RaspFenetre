@@ -76,7 +76,7 @@ app.use('/', require('./routes/home')())
     .use('/device', require('./routes/device')())
     .use('/api', require('./routes/api')())
     .use((req, res, next) => {
-        res.render('welcome.ejs');
+        res.render('error.ejs');
     });
 
 // Server start

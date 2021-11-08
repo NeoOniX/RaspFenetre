@@ -1228,10 +1228,11 @@ nav {
 nav a {
   position: relative;
   height: 25px;
+  width: 25px;
 }
 
 nav a.active::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -14px;
   left: 50%;
@@ -1272,7 +1273,7 @@ nav a svg {
   }
   nav a.active::before {
     top: 50%;
-    left: -105%;
+    left: -125%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
     width: 7.5px;
