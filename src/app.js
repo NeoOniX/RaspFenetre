@@ -15,31 +15,31 @@ let passport = require('passport');
 // User
 // let u = User.register("0_logo.png", "Utilisateur", "test");
 
-let lastDevices = Device.list();
+// let lastDevices = Device.list();
 
 // IP Scan
-Scan.scan(config.network.CIDR, config.network.options)
-.then((ips) => {
-    for (let ip of ips) {
-        Device.identify(ip)
-        .then((identity) => {
-            if (identity.found) {
-                lastDevices = lastDevices.filter((device) => device.id != identity.device.id);
-            } else {
-                let url = new URL(`http://${ip}/info`);
-                fetch(url).then((res) => {
-                    return res.json();
-                }).then((data) => {
-                    Device.register(ip, data.type, data.type);
-                }).catch((err) => { });
-            }
-        });
-    }
-}).then(() => {
-    for (let device of lastDevices) {
-        Device.log(device.ip, { type: "error", value: "Communication impossible"})
-    }
-}).then(() => {
+// Scan.scan(config.network.CIDR, config.network.options)
+// .then((ips) => {
+//     for (let ip of ips) {
+//         Device.identify(ip)
+//         .then((identity) => {
+//             if (identity.found) {
+//                 lastDevices = lastDevices.filter((device) => device.id != identity.device.id);
+//             } else {
+//                 let url = new URL(`http://${ip}/info`);
+//                 fetch(url).then((res) => {
+//                     return res.json();
+//                 }).then((data) => {
+//                     Device.register(ip, data.type, data.type);
+//                 }).catch((err) => { });
+//             }
+//         });
+//     }
+// }).then(() => {
+//     for (let device of lastDevices) {
+//         Device.log(device.ip, { type: "error", value: "Communication impossible"})
+//     }
+// }).then(() => {
     // Local Passport
     AuthPassport.setAsLocal(passport);
 
@@ -100,7 +100,7 @@ Scan.scan(config.network.CIDR, config.network.options)
     process.on('SIGUSR1', cleanExit);
     process.on('SIGUSR2', cleanExit);
     process.on('uncaughtException', cleanExit);
-})
-.catch((err) => {
-    throw err;
-});
+// })
+// .catch((err) => {
+//     throw err;
+// });
