@@ -1,0 +1,160 @@
+section.welcome {
+    @include flexMidColumn;
+
+    min-height: calc(100vh - 30px);
+    row-gap: 30px;
+
+    .head {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+
+        h1 {
+            @include GilroyLight;
+
+            color: $contrast-secondary;
+            font-size: 26px;
+
+            span {
+                @include GilroyBold;
+            }
+        }
+        p {
+            @include GilroyRegular;
+
+            font-size: 22px;
+            color: $contrast-secondary;
+        }
+    }
+}
+
+#user_creation {
+    @include flexMidColumn;
+
+    row-gap: 15px;
+    width: 100%;
+
+    input {
+        @include GilroyMedium;
+
+        width: 100%;
+        height: 50px;
+        font-size: 22px;
+        color: $grayscale-primary;
+        border: none;
+        background: $contrast-tertiary;
+        border-radius: 15px;
+        padding: 15px;
+
+        &::placeholder {
+            color: $grayscale-tertiary;
+        }
+    }
+    .input {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        background: $contrast-tertiary;
+        padding: 12px 15px;
+        width: 100%;
+        height: 50px;
+        border-radius: 15px;
+
+        &.icon {
+            padding: 0;
+            background: none;
+
+            .input_file {
+                position: relative;
+                width: 100%;
+                height: 50px;
+                padding: 12px 15px;
+                border-radius: 15px;
+                background: $contrast-tertiary;
+                transition: 0.2s;
+
+                &:hover {
+                    background: $main-hover;
+                }
+
+                p {
+                    @include GilroyMedium;
+
+                    font-size: 22px;
+                    color: $grayscale-primary;
+                }
+
+                input {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+            }
+
+            .logo {
+                min-width: 50px;
+                max-width: 50px;
+                height: 50px;
+                border-radius: 20px;
+                border: 1px solid $grayscale-primary;
+                overflow: hidden;
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+
+                #logo {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        input {
+            padding: 0;
+            border: none;
+            background: none;
+        }
+        span#show_password {
+            @include flexMid;
+
+            max-width: 20px;
+            max-height: 20px;
+            cursor: pointer;
+
+            &:hover svg {
+                fill: $grayscale-primary;
+            }
+
+            svg {
+                fill: $grayscale-tertiary;
+                transition: 0.2s;
+            }
+        }
+    }
+    .confirm {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $main-secondary;
+        border-radius: 20px;
+
+        button[type='submit'] {
+            @include GilroyMedium;
+
+            width: 100%;
+            font-size: 24px;
+            color: $grayscale-primary;
+            padding: 15px;
+            background: $main-secondary;
+            border: 1px solid $main-secondary;
+            border-radius: 15px;
+            transition: 0.2s;
+
+            &:hover {
+                background: $main-hover;
+            }
+        }
+    }
+}

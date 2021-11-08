@@ -40,15 +40,14 @@ let passport = require('passport');
 //         Device.log(device.ip, { type: "error", value: "Communication impossible"})
 //     }
 // }).then(() => {
-    // Local Passport
-    AuthPassport.setAsLocal(passport);
+// Local Passport
+AuthPassport.setAsLocal(passport);
 
-    // Express App
-    let app = express();
+// Express App
+let app = express();
 
-    // App config
-    app
-    .set('view engine', 'ejs')
+// App config
+app.set('view engine', 'ejs')
     .set('views', join(__dirname, '/views'))
     .use(cors())
     .use(favicon(join(__dirname, 'public/img/favicon.ico')))
@@ -58,48 +57,49 @@ let passport = require('passport');
     .use(compression())
     .use(minify())
     .use(express.static(join(__dirname, 'public')))
-    .use(session({
-        saveUninitialized: true,
-        resave: false,
-        name: config.session.name,
-        secret: config.session.secret
-    }))
+    .use(
+        session({
+            saveUninitialized: true,
+            resave: false,
+            name: config.session.name,
+            secret: config.session.secret,
+        })
+    )
     .use(passport.initialize())
     .use(passport.session());
 
-    // Routes
-    app
-    .use("/", require('./routes/home')())
-    .use("/init", require('./routes/init')(passport))
-    .use("/auth", require('./routes/auth')(passport))
-    .use("/room", require('./routes/room')())
-    .use("/device", require('./routes/device')())
-    .use("/api", require('./routes/api')())
+// Routes
+app.use('/', require('./routes/home')())
+    .use('/init', require('./routes/init')(passport))
+    .use('/auth', require('./routes/auth')(passport))
+    .use('/room', require('./routes/room')())
+    .use('/device', require('./routes/device')())
+    .use('/api', require('./routes/api')())
     .use((req, res, next) => {
-        res.render('error.ejs', { errorid: '404' });
+        res.render('welcome.ejs');
     });
 
-    // Server start
-    let server = app.listen(8080, () => {
-        console.log(`Server started on port ${server.address().port}`);
-    });
+// Server start
+let server = app.listen(8080, () => {
+    console.log(`Server started on port ${server.address().port}`);
+});
 
-    // Secure Server stop on process exit
-    function cleanExit() {
-        if (server) {
-            server.close(() => {
-                console.log("Server stopped.");
-            });
-            server = null;
-        }
-    };
+// Secure Server stop on process exit
+function cleanExit() {
+    if (server) {
+        server.close(() => {
+            console.log('Server stopped.');
+        });
+        server = null;
+    }
+}
 
-    process.on('exit', cleanExit);
-    process.on('SIGTERM', cleanExit);
-    process.on('SIGINT', cleanExit);
-    process.on('SIGUSR1', cleanExit);
-    process.on('SIGUSR2', cleanExit);
-    process.on('uncaughtException', cleanExit);
+process.on('exit', cleanExit);
+process.on('SIGTERM', cleanExit);
+process.on('SIGINT', cleanExit);
+process.on('SIGUSR1', cleanExit);
+process.on('SIGUSR2', cleanExit);
+// process.on('uncaughtException', cleanExit);
 // })
 // .catch((err) => {
 //     throw err;
