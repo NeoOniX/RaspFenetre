@@ -70,7 +70,7 @@ Scan.scan(config.network.CIDR, config.network.options)
     // Routes
     app
     .use("/", require('./routes/home')())
-    .use("/init", require('./routes/init')(passport))
+    .use("/welcome", require('./routes/welcome')())
     .use("/auth", require('./routes/auth')(passport))
     .use("/room", require('./routes/room')())
     .use("/device", require('./routes/device')())
@@ -99,7 +99,7 @@ Scan.scan(config.network.CIDR, config.network.options)
     process.on('SIGINT', cleanExit);
     process.on('SIGUSR1', cleanExit);
     process.on('SIGUSR2', cleanExit);
-    process.on('uncaughtException', cleanExit);
+    // process.on('uncaughtException', cleanExit);
 })
 .catch((err) => {
     throw err;

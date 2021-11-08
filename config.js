@@ -4,7 +4,7 @@ module.exports = {
         secret: "$2b$10$7Kb2J2aHzgjqroNVQH.DTuXRXJV6qrfVTxaXwJPO72DVxBvtEQhCi",
     },
     network: {
-        CIDR: "192.168.0.0/24",
+        CIDR: "192.168.43.0/24",
         options: {
             port: 80
         }

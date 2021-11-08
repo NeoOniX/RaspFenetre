@@ -2,5 +2,9 @@
     {
         "id": "0",
         "name": "Non attribué"
+    },
+    {
+        "id": "a",
+        "name": "Salle E1"
     }
 ]

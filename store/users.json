@@ -4,7 +4,9 @@
         "icon": "0_logo.png",
         "name": "Gauthier",
         "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
-        "perms": ["administrator"],
+        "perms": [
+            "administrator"
+        ],
         "prefs": []
     },
     {
@@ -12,7 +14,9 @@
         "icon": "0_logo.png",
         "name": "Gauthier",
         "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
-        "perms": ["administrator"],
+        "perms": [
+            "administrator"
+        ],
         "prefs": []
     },
     {
@@ -20,7 +24,9 @@
         "icon": "0_logo.png",
         "name": "Gauthier",
         "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
-        "perms": ["administrator"],
+        "perms": [
+            "administrator"
+        ],
         "prefs": []
     },
     {
@@ -36,6 +42,14 @@
         "icon": "0_logo.png",
         "name": "Gauthier",
         "pass": "$2b$10$RyWccw0iPDt7wTvN3dj61eNWV6Xsdya4plrH3ihVm/Pq.9zpwZQFG",
+        "perms": [],
+        "prefs": []
+    },
+    {
+        "id": "t4qpe7euk8",
+        "icon": "0_Sans titre.png",
+        "name": "WEMOS",
+        "pass": "$2b$10$7dwSSiDKHAB8av4jfGoAo./f8i81ogAtrUKm38EY6yYqVMFy992mG",
         "perms": [],
         "prefs": []
     }

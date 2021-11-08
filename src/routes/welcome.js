@@ -8,13 +8,13 @@ let router = express.Router();
 function getRoute (...args) {
     // On first run, show the page to create the Administrator account
     router.get('/', (req, res) => {
-
+        res.render('welcome')
     });
 
     // Administrator account POST route
     router.post('/', (req, res) => {
         // Create an empty User object
-        let user = {};
+        let user = { icon: "base_icon.png" };
 
         // On a form field
         req.busboy.on('field', (fieldname, value) => {
@@ -51,15 +51,11 @@ function getRoute (...args) {
         req.busboy.on('finish', () => {
             // Register the new user using the properties of the User object
             User.register(user.icon, user.name, user.pass);
+            res.redirect('/home');
         });
 
         // Send request data through the busboy middleware configured above
         req.pipe(req.busboy);
-    });
-
-    // When the configuration is successful
-    router.get('/configured', (req, res) => {
-        res.render('configured');
     });
 
     return router;

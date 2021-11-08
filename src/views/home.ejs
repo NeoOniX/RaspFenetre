@@ -5,7 +5,9 @@
         <%- include('./partials/header', {...user, backoption: false}); %>
         <%- include('./partials/userslogin', {users, loginpagetitle: "Choix du compte"}); %>
         <div class="roomlist">
-            <%- include('./partials/roomcard', {roomname: "Classe E2"}); %>
+            <% for(let room of rooms) { %>
+                <%- include('./partials/roomcard', {room}); %>
+            <% } %>
         </div>
         <%- include('./partials/navbar', { active: "home" }); %>
         <script type="text/javascript" src="../js/home.js"></script>

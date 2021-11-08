@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('./partials/head', {title: "Première connexion"}); %>
+    <body class="light">
+        <section class="welcome">
+            <div class="head">
+                <h1>Bienvenue sur <span>RASP Fenêtre</span></h1>
+                <p>
+                    La création d’un premier utilisateur est obligatoire, par ailleurs ce dernier sera automatiquement administrateur de
+                    l’application.
+                </p>
+            </div>
+            <%- include('./partials/user_creation'); %>
+        </section>
+    </body>
+</html>

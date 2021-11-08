@@ -1,4 +1,4 @@
 <li class="device_element">
-    <p id="device_name"><%= devicename %></p>
-    <p id="device_value"><%= devicevalue %></p>
+    <p id="device_name"><%= device.name %></p>
+    <p id="device_value"><%= device.logs.filter((log) => log.type == "data").at(-1) ? device.logs.filter((log) => log.type == "data").at(-1).value : "" %></p>
 </li>
