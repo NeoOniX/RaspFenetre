@@ -67,6 +67,20 @@ Scan.scan(config.network.CIDR, config.network.options)
     .use(passport.initialize())
     .use(passport.session());
 
+    // Custom middleware :
+    // If no user are in the database, redirect to the welcome screen
+    // If the first administrator account is created, block access to welcome screen
+    app.use((req, res, next) => {
+        if (User.list().length == 0 && req.url != "/welcome" && req.method == "GET") {
+            res.redirect("/welcome");
+        } else if (User.list().length > 0 && req.url == "/welcome") {
+            res.redirect("/home");
+        } else {
+            next();
+        }
+    });
+
+
     // Routes
     app
     .use("/", require('./routes/home')())

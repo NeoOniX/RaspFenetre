@@ -8,7 +8,7 @@ let router = express.Router();
 function getRoute (...args) {
     // On first run, show the page to create the Administrator account
     router.get('/', (req, res) => {
-        res.render('welcome')
+        res.render('welcome', { formaction: "/welcome" });
     });
 
     // Administrator account POST route
@@ -28,7 +28,7 @@ function getRoute (...args) {
         // On a form file
         req.busboy.on('file', (fieldname, file, filename) => {
             // If the field is the icon field
-            if (fieldname == "icon") {
+            if (fieldname == "icon" && filename) {
                 // Find an available file name
                 let i = 0;
                 let fname = `${i}_${filename}`;
@@ -44,14 +44,17 @@ function getRoute (...args) {
 
                 // Write the uploaded icon through the file writing stream
                 file.pipe(fstream);
+            } else {
+                file.resume();
             }
         });
 
         // On form end
         req.busboy.on('finish', () => {
             // Register the new user using the properties of the User object
-            User.register(user.icon, user.name, user.pass);
-            res.redirect('/home');
+            User.register(user.icon, user.name, user.pass, ["administrator"]).then((user) => {
+                res.redirect('../auth/login');
+            });
         });
 
         // Send request data through the busboy middleware configured above
