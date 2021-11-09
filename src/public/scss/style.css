@@ -837,22 +837,6 @@ section.room .sensors ul.devices_list li.device_element:hover {
   background: #341ea7;
 }
 
-section.room .sensors ul.devices_list li.device_element button#draggable {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-section.room .sensors ul.devices_list li.device_element button#draggable:hover svg {
-  fill: #1dcbf2;
-}
-
-section.room .sensors ul.devices_list li.device_element button#draggable svg {
-  fill: #f5f8ff;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
 @media screen and (min-width: 768px) {
   section.room .sensors ul.devices_list {
     display: -ms-grid;
@@ -1545,6 +1529,10 @@ ul.devices_list {
   position: relative;
   list-style: none;
   grid-gap: 15px;
+}
+
+ul.devices_list li.device_element {
+  border-radius: 15px;
 }
 
 ul.devices_list li.device_element a {

@@ -63,35 +63,38 @@
 ul.devices_list {
     position: relative;
     list-style: none;
-
     grid-gap: 15px;
 
-    li.device_element a {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        row-gap: 15px;
-        background: $main-secondary;
+    li.device_element {
         border-radius: 15px;
-        padding: 15px;
-        box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.25);
-        transition: 0.2s;
 
-        &:hover {
-            background: $main-hover;
-        }
-
-        #device_name {
-            @include GilroyMedium;
-
-            font-size: 18px;
-            color: $grayscale-primary;
-        }
-        #device_value {
-            @include GilroyBold;
-
-            font-size: 22px;
-            color: $contrast-primary;
+        a {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+            background: $main-secondary;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.25);
+            transition: 0.2s;
+    
+            &:hover {
+                background: $main-hover;
+            }
+    
+            #device_name {
+                @include GilroyMedium;
+    
+                font-size: 18px;
+                color: $grayscale-primary;
+            }
+            #device_value {
+                @include GilroyBold;
+    
+                font-size: 22px;
+                color: $contrast-primary;
+            }
         }
     }
 }
