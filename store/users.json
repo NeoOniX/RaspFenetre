@@ -1,2 +1,12 @@
 [
+    {
+        "id": "wgq8qxrjbm8",
+        "icon": "base_icon.png",
+        "name": "TEST",
+        "pass": "$2b$10$nfkXwe/VnGMLaVopbl9D6.060wu5rqFJexMXZFL0gi0ZumukpVUJC",
+        "perms": [
+            "administrator"
+        ],
+        "prefs": []
+    }
 ]

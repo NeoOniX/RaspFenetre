@@ -38,8 +38,10 @@
         <script type="text/javascript" src="../js/data.js"></script>
         <script>
             roomData("<%- id %>");
+            roomSetup();
             setInterval(() => {
                 roomData("<%- id %>");
+                roomSetup();
             }, 5000);
         </script>
     </body>
