@@ -1,6 +1,7 @@
 const IDGenerator = require('./IDGenerator');
 const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
+const { Device } = require('.');
 const { parse, stringify } = JSON;
 
 class Room {
@@ -43,6 +44,10 @@ class Room {
         if (id.id) id=id.id;
         let rooms = this.list();
         rooms = rooms.filter((room) => room.id != id);
+        let devices = Device.list().filter((device) => device.room == room.id);
+        for (let device of devices) {
+            device.room = "0";
+        }
         writeFileSync(join(__dirname, "../../store/rooms.json"), stringify(rooms, null, 4));
     }
 }

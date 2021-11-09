@@ -33,6 +33,18 @@
             {
                 "type": "error",
                 "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
             }
         ]
     },
@@ -46,6 +58,18 @@
             {
                 "type": "data",
                 "value": "1"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
             },
             {
                 "type": "error",

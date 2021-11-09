@@ -32,10 +32,14 @@ function getRoute (...args) {
             return;
         }
 
-        let users = User.list();
-        users.filter((user) => user.id == req.user.id)[0].connected = true;
-
-        res.render('settings.ejs', { users, user: req.user });
+        if (req.user.perms.includes("administrator")) {
+            let users = User.list();
+            users.filter((user) => user.id == req.user.id)[0].connected = true;
+    
+            res.render('settings.ejs', { users, user: req.user });
+        } else {
+            res.redirect('/home')
+        }
     });
 
     return router;

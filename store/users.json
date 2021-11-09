@@ -2,11 +2,19 @@
     {
         "id": "wgq8qxrjbm8",
         "icon": "base_icon.png",
-        "name": "TEST",
+        "name": "ADMIN",
         "pass": "$2b$10$nfkXwe/VnGMLaVopbl9D6.060wu5rqFJexMXZFL0gi0ZumukpVUJC",
         "perms": [
             "administrator"
         ],
+        "prefs": []
+    },
+    {
+        "id": "aaaaaaa",
+        "icon": "base_icon.png",
+        "name": "USER",
+        "pass": "$2b$10$nfkXwe/VnGMLaVopbl9D6.060wu5rqFJexMXZFL0gi0ZumukpVUJC",
+        "perms": [],
         "prefs": []
     }
 ]
