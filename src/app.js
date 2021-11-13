@@ -1,16 +1,16 @@
 // Require
-const express = require('express');
-const session = require('express-session');
-const minify = require('express-minify');
-const compression = require('compression');
-const cors = require('cors');
-const busboy = require('connect-busboy');
-const favicon = require('serve-favicon');
-const config = require('../config');
-const fetch = require('node-fetch');
-const { join } = require('path');
-const { Scan, AuthPassport, User, Device, Room } = require('./utils');
-let passport = require('passport');
+const express = require("express");
+const session = require("express-session");
+const minify = require("express-minify");
+const compression = require("compression");
+const cors = require("cors");
+const busboy = require("connect-busboy");
+const favicon = require("serve-favicon");
+const config = require("../config");
+const fetch = require("node-fetch");
+const { join } = require("path");
+const { Scan, AuthPassport, User, Device, Room } = require("./utils");
+let passport = require("passport");
 
 // User
 // let u = User.register("0_logo.png", "Utilisateur", "test");
@@ -47,16 +47,16 @@ AuthPassport.setAsLocal(passport);
 let app = express();
 
 // App config
-app.set('view engine', 'ejs')
-    .set('views', join(__dirname, '/views'))
+app.set("view engine", "ejs")
+    .set("views", join(__dirname, "/views"))
     .use(cors())
-    .use(favicon(join(__dirname, 'public/img/favicon.ico')))
+    .use(favicon(join(__dirname, "public/img/favicon.ico")))
     .use(busboy())
     .use(express.json())
     .use(express.urlencoded({ extended: true }))
     .use(compression())
     .use(minify())
-    .use(express.static(join(__dirname, 'public')))
+    .use(express.static(join(__dirname, "public")))
     .use(
         session({
             saveUninitialized: true,
@@ -69,14 +69,14 @@ app.set('view engine', 'ejs')
     .use(passport.session());
 
 // Routes
-app.use('/', require('./routes/home')())
-    .use('/init', require('./routes/init')(passport))
-    .use('/auth', require('./routes/auth')(passport))
-    .use('/room', require('./routes/room')())
-    .use('/device', require('./routes/device')())
-    .use('/api', require('./routes/api')())
+app.use("/", require("./routes/home")())
+    .use("/init", require("./routes/welcome")(passport))
+    .use("/auth", require("./routes/auth")(passport))
+    .use("/room", require("./routes/room")())
+    .use("/device", require("./routes/device")())
+    .use("/api", require("./routes/api")())
     .use((req, res, next) => {
-        res.render('error.ejs');
+        res.render("error.ejs");
     });
 
 // Server start
@@ -88,17 +88,17 @@ let server = app.listen(8080, () => {
 function cleanExit() {
     if (server) {
         server.close(() => {
-            console.log('Server stopped.');
+            console.log("Server stopped.");
         });
         server = null;
     }
 }
 
-process.on('exit', cleanExit);
-process.on('SIGTERM', cleanExit);
-process.on('SIGINT', cleanExit);
-process.on('SIGUSR1', cleanExit);
-process.on('SIGUSR2', cleanExit);
+process.on("exit", cleanExit);
+process.on("SIGTERM", cleanExit);
+process.on("SIGINT", cleanExit);
+process.on("SIGUSR1", cleanExit);
+process.on("SIGUSR2", cleanExit);
 // process.on('uncaughtException', cleanExit);
 // })
 // .catch((err) => {

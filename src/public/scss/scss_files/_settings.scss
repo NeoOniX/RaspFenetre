@@ -67,7 +67,7 @@ section.settings {
     border: 1px solid $grayscale-primary;
     background: linear-gradient(165deg, $grayscale-primary 0%, $grayscale-secondary 100%);
     box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.35);
-    // clip-path: circle(0% at 50% 50%);
+    clip-path: circle(0% at 50% 50%);
     transition: 0.4s;
 
     &.active {
@@ -127,14 +127,60 @@ section.settings {
                     font-size: 18px;
                     color: $grayscale-primary;
                 }
-                input[type='checkbox'] {
-                    width: 27px;
-                    height: 27px;
-                    border-radius: 100%;
+                input[type="checkbox"] {
+                    appearance: none;
+                    position: relative;
+                    max-width: 27px;
+                    max-height: 27px;
+                    border-radius: 500%;
+                    background: $info-red;
+                    border: 1px solid $info-red;
                     cursor: pointer;
-                    border: none;
+                    transition: 0.2s;
+
+                    &::before {
+                        @include absoluteCenter;
+
+                        content: "";
+                        mask: url('data:image/svg+xml; charset=utf-8, <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><path d="M11.4911 0.25L6.5 5.24107L1.50893 0.25L0.25 1.50893L5.24107 6.5L0.25 11.4911L1.50893 12.75L6.5 7.75893L11.4911 12.75L12.75 11.4911L7.75893 6.5L12.75 1.50893L11.4911 0.25Z" /></svg>')
+                            no-repeat 50% 50%;
+                        mask-size: cover;
+                        background-color: $grayscale-primary;
+                        width: 13px;
+                        height: 13px;
+                        box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.1);
+                    }
+
+                    &:hover {
+                        background: $info-red-hover;
+
+                        &:checked {
+                            background: $info-green-hover;
+                        }
+                    }
+
+                    &:checked {
+                        background: $info-green;
+                        border: 1px solid $info-green;
+
+                        &::before {
+                            mask: url('data:image/svg+xml; charset=utf-8, <svg width="17" height="13" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg"><path d="M16.7262 1.56228L5.53849 12.75L0.273682 7.48519L1.58596 6.17291L5.53849 10.1161L15.4139 0.25L16.7262 1.56228Z" /></svg>')
+                                no-repeat 50% 50%;
+                            width: 16.45px;
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+// Responsive : 
+@media screen and (min-width: 768px) {
+    section.settings_add {
+        left: 105px;
+        bottom: 15px;
+        width: calc(100% - 120px);
+        height: calc(100% - 191px);
     }
 }

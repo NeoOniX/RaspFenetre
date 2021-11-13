@@ -9,7 +9,7 @@
             <article id="settings_element">
                 <div class="header">
                     <h2>Comptes</h2>
-                    <button class="addbuttons">
+                    <button class="addbuttons" id="member">
                         <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M19.5384 8.9318H11.0682L11.0682 0.461669H8.93176L8.93176 8.9318H0.461635L0.461635 11.0683L8.93176 11.0683L8.93176 19.5384H11.0682L11.0682 11.0683L19.5384 11.0683L19.5384 8.9318Z"
@@ -17,12 +17,12 @@
                         </svg>
                     </button>
                 </div>
-                <div id="setting">Liste des comptes</div>
+                <a href="#" id="setting">Liste des comptes</a>
             </article>
             <article id="settings_element">
                 <div class="header">
                     <h2>Salles</h2>
-                    <button class="addbuttons">
+                    <button class="addbuttons" id="room">
                         <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M19.5384 8.9318H11.0682L11.0682 0.461669H8.93176L8.93176 8.9318H0.461635L0.461635 11.0683L8.93176 11.0683L8.93176 19.5384H11.0682L11.0682 11.0683L19.5384 11.0683L19.5384 8.9318Z"
@@ -30,11 +30,10 @@
                         </svg>
                     </button>
                 </div>
-                <div id="setting">Liste des salles</div>
+                <a href="#" id="setting">Liste des salles</a>
             </article>
         </section>
-        <%- include('./partials/add_member'); %>
-        <%- include('./partials/navbar', { active: "settings" }); %>
+        <%- include('./partials/add_update_member'); %> <%- include('./partials/add_update_room'); %> <%- include('./partials/navbar', { active: "settings" }); %>
         <script type="text/javascript" src="js/home.js"></script>
         <script type="text/javascript" src="../js/settings.js"></script>
     </body>
