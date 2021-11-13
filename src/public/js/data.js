@@ -44,8 +44,16 @@ function deviceData(id) {
     }).then((data) => {
         device.name.innerHTML = data.name;
         device.value.innerHTML = data.value;
-        device.type.innerHTML = data.type;
-        device.room.innerHTML = data.room;
+        device.type.innerHTML = `   
+            <span><p>Type</p></span>
+            <h3>${data.type}</h3>
+            `;
+        device.room.innerHTML = `   
+            <span><p>Salle</p></span>
+            <h3>${data.room}</h3>
+            `;
+
+        
         
         let battery = "";
         if (data.battery == "n/a") {

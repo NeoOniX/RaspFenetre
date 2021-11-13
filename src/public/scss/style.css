@@ -837,6 +837,22 @@ section.room .sensors ul.devices_list li.device_element:hover {
   background: #341ea7;
 }
 
+section.room .sensors ul.devices_list li.device_element button#draggable {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+section.room .sensors ul.devices_list li.device_element button#draggable:hover svg {
+  fill: #1dcbf2;
+}
+
+section.room .sensors ul.devices_list li.device_element button#draggable svg {
+  fill: #f5f8ff;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 @media screen and (min-width: 768px) {
   section.room .sensors ul.devices_list {
     display: -ms-grid;
@@ -1033,6 +1049,13 @@ section.sensor .informations .global {
           column-gap: 15px;
 }
 
+section.sensor .informations .global .info h3 {
+  font-family: "Gilroy Bold";
+  font-weight: 700;
+  color: #f5f8ff;
+  font-size: 32px;
+}
+
 section.settings {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1108,6 +1131,119 @@ section.settings #settings_element #setting {
 
 section.settings #settings_element #setting:hover {
   background: #6d5cde;
+}
+
+.settings_add {
+  position: absolute;
+  bottom: 105px;
+  left: 15px;
+  z-index: 10;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(100% - 30px);
+  height: calc(100% - 282px);
+  border-radius: 20px;
+  border: 1px solid #f5f8ff;
+  background: linear-gradient(165deg, #f5f8ff 0%, #dbe9f6 100%);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.settings_add.active {
+  -webkit-clip-path: circle(75% at 50% 50%);
+          clip-path: circle(75% at 50% 50%);
+}
+
+.settings_add button#close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  z-index: 11;
+  top: -25px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: #1dcbf2;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.settings_add button#close:hover {
+  background: #5350d5;
+}
+
+.settings_add button#close svg {
+  fill: #f5f8ff;
+}
+
+.settings_add .perms {
+  width: 100%;
+}
+
+.settings_add .perms h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 24px;
+  color: #0c2659;
+  margin: 15px 0;
+}
+
+.settings_add .perms ul#permissions {
+  list-style: none;
+  border: 1px solid #0c2659;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.settings_add .perms ul#permissions li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  background: #4530b1;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.settings_add .perms ul#permissions li p {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 18px;
+  color: #f5f8ff;
+}
+
+.settings_add .perms ul#permissions li input[type='checkbox'] {
+  width: 27px;
+  height: 27px;
+  border-radius: 100%;
+  cursor: pointer;
+  border: none;
 }
 
 section.error {
@@ -1240,6 +1376,7 @@ nav a.active svg {
 nav a svg {
   position: relative;
   height: 25px;
+  width: 25px;
   fill: #b8c5d5;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -1256,7 +1393,7 @@ nav a svg {
   }
   nav a.active::before {
     top: 50%;
-    left: -105%;
+    left: -125%;
     -webkit-transform: translate(50%, -50%);
             transform: translate(50%, -50%);
     width: 7.5px;
@@ -1307,6 +1444,7 @@ header .left a {
   border: 1px solid #6d5cde;
   width: 50px;
   height: 50px;
+  cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -1879,13 +2017,5 @@ section.historique .historique_choices button.historique_choice h2 {
 button#draggable {
   cursor: -webkit-grab;
   cursor: grab;
-}
-
-body.purple .bluebutton {
-  background: #6d5cde;
-}
-
-body.purple .bluebutton:hover {
-  background: #4530b1;
 }
 /*# sourceMappingURL=style.css.map */

@@ -54,11 +54,3 @@ button#draggable {
     cursor: grab;
 }
 
-// Color :
-body.purple .bluebutton {
-    background: $main-primary;
-
-    &:hover {
-        background: $main-secondary;
-    }
-}
