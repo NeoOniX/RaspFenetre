@@ -2,8 +2,8 @@
 <html lang="fr">
     <%- include('./partials/head', {title: roomname }); %>
     <body class="light need_padding">
-        <%- include('./partials/header', {...user, backoption: true}); %> <%- include('./partials/userslogin', {loginpagetitle: "Choix du compte"});
-        %>
+        <%- include('./partials/header', {...user, backoption: true}); %>
+        <%- include('./partials/userslogin', {loginpagetitle: "Choix du compte"}); %>
         <section class="room">
             <div class="top">
                 <h1>NOM</h1>
@@ -28,10 +28,12 @@
             </div>
             <div class="sensors">
                 <h2>Capteurs & Actionneurs</h2>
-                <ul class="devices_list"></ul>
+                <ul class="devices_list">
+                </ul>
             </div>
         </section>
-        <%- include('./partials/historique'); %> <%- include('./partials/navbar', { active: "home" }); %>
+        <%- include('./partials/historique'); %>
+        <%- include('./partials/navbar', { user, active: "home" }); %>
         <script type="text/javascript" src="../js/room.js"></script>
         <script type="text/javascript" src="../js/data.js"></script>
         <script>

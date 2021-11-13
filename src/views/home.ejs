@@ -9,7 +9,7 @@
                 <%- include('./partials/roomcard', {room}); %>
             <% } %>
         </div>
-        <%- include('./partials/navbar', { active: "home" }); %>
+        <%- include('./partials/navbar', { user, active: "home" }); %>
         <script type="text/javascript" src="../js/home.js"></script>
     </body>
 </html>

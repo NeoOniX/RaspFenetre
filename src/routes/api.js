@@ -21,6 +21,7 @@ function getRoute (...args) {
             name: device.name,
             type: device.type,
             room: room.name,
+            logs: device.logs,
             value: device.logs.filter((log) => log.type == "data").at(-1) ? device.logs.filter((log) => log.type == "data").at(-1).value : "",
             battery: device.logs.filter((log) => log.type == "battery").at(-1) ? device.logs.filter((log) => log.type == "battery").at(-1).value : "n/a",
         })).end();
@@ -41,6 +42,7 @@ function getRoute (...args) {
             ret.devices.push({
                 id: device.id,
                 name: device.name,
+                logs: device.logs,
                 value: device.logs.filter((log) => log.type == "data").at(-1) ? device.logs.filter((log) => log.type == "data").at(-1).value : ""
             });
         }

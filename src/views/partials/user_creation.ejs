@@ -1,4 +1,8 @@
-<form method="POST" id="user_creation">
+<form
+    id="user_creation"
+    action="<%- formaction %> "
+    method="POST"
+    enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Pseudonyme" />
     <div class="input">
         <input type="password" name="pass" placeholder="Mot de passe" />
@@ -23,4 +27,4 @@
         <button type="submit">Confirmer</button>
     </div>
 </form>
-<script type="text/javascript" src="js/user_creation.js"></script>
+<script type="text/javascript" src="../js/user_creation.js"></script>
