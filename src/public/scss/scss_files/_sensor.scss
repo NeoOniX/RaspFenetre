@@ -124,6 +124,15 @@ section.sensor {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             column-gap: 15px;
+
+            .info {
+                h3 {
+                    @include GilroyBold;
+
+                    color: $grayscale-primary;
+                    font-size: 32px;
+                }
+            }
         }
     }
 }

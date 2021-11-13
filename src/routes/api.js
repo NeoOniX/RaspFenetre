@@ -17,6 +17,7 @@ function getRoute (...args) {
         let room = Room.deserialize(device.room);
 
         res.status(200).send(JSON.stringify({
+            id: device.id,
             name: device.name,
             type: device.type,
             room: room.name,
@@ -27,9 +28,10 @@ function getRoute (...args) {
 
     router.get('/room/:roomid', (req, res) => {
         let room = Room.deserialize(req.params.roomid);
-        let devices = Device.list().filter((device) => device.room = room.id);
+        let devices = Device.list().filter((device) => device.room == room.id);
 
         let ret = {
+            id: room.id,
             name: room.name,
             devicescount: devices.length,
             devices : []
@@ -37,6 +39,7 @@ function getRoute (...args) {
 
         for (let device of devices) {
             ret.devices.push({
+                id: device.id,
                 name: device.name,
                 value: device.logs.filter((log) => log.type == "data").at(-1) ? device.logs.filter((log) => log.type == "data").at(-1).value : ""
             });

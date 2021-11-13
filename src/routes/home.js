@@ -1,5 +1,5 @@
 const express = require('express');
-const { User } = require('../utils');
+const { User, Room, Device } = require('../utils');
 
 let router = express.Router();
 
@@ -17,7 +17,13 @@ function getRoute (...args) {
         let users = User.list();
         users.filter((user) => user.id == req.user.id)[0].connected = true;
 
-        res.render('home.ejs', { users, user: req.user });
+        let rooms = Room.list();
+
+        for (let room of rooms) {
+            room.devices = Device.list().filter(device => device.room == room.id);
+        }
+
+        res.render('home.ejs', { rooms, users, user: req.user });
     });
 
     router.get('/settings', (req, res) => {

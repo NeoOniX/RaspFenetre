@@ -37,6 +37,35 @@
             {
                 "type": "error",
                 "value": "Communication impossible"
+            }
+        ]
+    },
+    {
+        "id": "1",
+        "ip": "192.168.0.2",
+        "name": "Fake PIR",
+        "type": "pir",
+        "room": "0",
+        "logs": [
+            {
+                "type": "data",
+                "value": "1"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
+            },
+            {
+                "type": "error",
+                "value": "Communication impossible"
             },
             {
                 "type": "error",

@@ -1,14 +1,5 @@
 function prepareRoomCards () {
-    let roomCards = document.querySelectorAll(".roomlist article.roomcard");
-    let roomCardsDraggableBtns = document.querySelectorAll(".roomlist article.roomcard .head button#draggable");
     let roomCardsToggleBtns = document.querySelectorAll(".roomlist article.roomcard .head button#onoff");
-
-    // Hide Draggable buttons :
-    if (roomCards.length <= 1) {
-        roomCardsDraggableBtns.forEach((roomCardsDraggableBtn) => {
-            roomCardsDraggableBtn.style.display = "none";
-        });
-    }
 
     // Change Toggle On / Off buttons :
     roomCardsToggleBtns.forEach((roomCardsToggleBtn) =>
