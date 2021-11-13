@@ -1,4 +1,4 @@
-<section class="settings_add" id="member">
+<section class="settings_add_update" id="member">
     <button id="close">
         <svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -7,9 +7,9 @@
         </svg>
     </button>
     <form id="user_creation" method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Pseudonyme" />
+        <input type="text" name="name" placeholder="Pseudonyme" required/>
         <div class="input">
-            <input type="password" name="pass" placeholder="Mot de passe" />
+            <input type="password" name="pass" placeholder="Mot de passe" required/>
             <span id="show_password">
                 <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                     <path

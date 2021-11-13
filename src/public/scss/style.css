@@ -833,7 +833,7 @@ section.room .sensors ul.devices_list li.device_element {
   transition: 0.2s;
 }
 
-section.room .sensors ul.devices_list li.device_element:hover {
+section.room .sensors ul.devices_list li.device_element:hover a {
   background: #341ea7;
 }
 
@@ -1133,7 +1133,7 @@ section.settings #settings_element #setting:hover {
   background: #6d5cde;
 }
 
-.settings_add {
+.settings_add_update {
   position: absolute;
   bottom: 105px;
   left: 15px;
@@ -1159,12 +1159,12 @@ section.settings #settings_element #setting:hover {
   transition: 0.4s;
 }
 
-.settings_add.active {
+.settings_add_update.active {
   -webkit-clip-path: circle(75% at 50% 50%);
           clip-path: circle(75% at 50% 50%);
 }
 
-.settings_add button#close {
+.settings_add_update button#close {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1188,19 +1188,19 @@ section.settings #settings_element #setting:hover {
   transition: 0.2s;
 }
 
-.settings_add button#close:hover {
+.settings_add_update button#close:hover {
   background: #5350d5;
 }
 
-.settings_add button#close svg {
+.settings_add_update button#close svg {
   fill: #f5f8ff;
 }
 
-.settings_add .perms {
+.settings_add_update .perms {
   width: 100%;
 }
 
-.settings_add .perms h2 {
+.settings_add_update .perms h2 {
   font-family: "Gilroy Medium";
   font-weight: 500;
   font-size: 24px;
@@ -1208,14 +1208,14 @@ section.settings #settings_element #setting:hover {
   margin: 15px 0;
 }
 
-.settings_add .perms ul#permissions {
+.settings_add_update .perms ul#permissions {
   list-style: none;
   border: 1px solid #0c2659;
   border-radius: 20px;
   padding: 10px;
 }
 
-.settings_add .perms ul#permissions li {
+.settings_add_update .perms ul#permissions li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1233,14 +1233,14 @@ section.settings #settings_element #setting:hover {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.settings_add .perms ul#permissions li p {
+.settings_add_update .perms ul#permissions li p {
   font-family: "Gilroy Medium";
   font-weight: 500;
   font-size: 18px;
   color: #f5f8ff;
 }
 
-.settings_add .perms ul#permissions li input[type="checkbox"] {
+.settings_add_update .perms ul#permissions li input[type="checkbox"] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1255,7 +1255,7 @@ section.settings #settings_element #setting:hover {
   transition: 0.2s;
 }
 
-.settings_add .perms ul#permissions li input[type="checkbox"]::before {
+.settings_add_update .perms ul#permissions li input[type="checkbox"]::before {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1273,31 +1273,170 @@ section.settings #settings_element #setting:hover {
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.settings_add .perms ul#permissions li input[type="checkbox"]:hover {
+.settings_add_update .perms ul#permissions li input[type="checkbox"]:hover {
   background: #d42d2d;
 }
 
-.settings_add .perms ul#permissions li input[type="checkbox"]:hover:checked {
+.settings_add_update .perms ul#permissions li input[type="checkbox"]:hover:checked {
   background: #2ccf63;
 }
 
-.settings_add .perms ul#permissions li input[type="checkbox"]:checked {
+.settings_add_update .perms ul#permissions li input[type="checkbox"]:checked {
   background: #43e77a;
   border: 1px solid #43e77a;
 }
 
-.settings_add .perms ul#permissions li input[type="checkbox"]:checked::before {
+.settings_add_update .perms ul#permissions li input[type="checkbox"]:checked::before {
   -webkit-mask: url('data:image/svg+xml; charset=utf-8, <svg width="17" height="13" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg"><path d="M16.7262 1.56228L5.53849 12.75L0.273682 7.48519L1.58596 6.17291L5.53849 10.1161L15.4139 0.25L16.7262 1.56228Z" /></svg>') no-repeat 50% 50%;
           mask: url('data:image/svg+xml; charset=utf-8, <svg width="17" height="13" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg"><path d="M16.7262 1.56228L5.53849 12.75L0.273682 7.48519L1.58596 6.17291L5.53849 10.1161L15.4139 0.25L16.7262 1.56228Z" /></svg>') no-repeat 50% 50%;
   width: 16.45px;
 }
 
 @media screen and (min-width: 768px) {
-  section.settings_add {
+  section.settings_add_update {
     left: 105px;
     bottom: 15px;
     width: calc(100% - 120px);
     height: calc(100% - 191px);
+  }
+}
+
+section.settings_lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+}
+
+section.settings_lists h1 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  font-size: 22px;
+  border-radius: 15px;
+  color: #f5f8ff;
+  padding: 10px;
+  background: #5350d5;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+section.settings_lists .userstype {
+  display: -ms-grid;
+  display: grid;
+  row-gap: 15px;
+}
+
+section.settings_lists .userstype:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+section.settings_lists .userstype h2 {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 24px;
+  color: #f5f8ff;
+}
+
+section.settings_lists ul {
+  list-style: none;
+}
+
+section.settings_lists ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+section.settings_lists ul li#listelement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 80px;
+  border-radius: 20px;
+  padding: 15px;
+  background: #5350d5;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+section.settings_lists ul li#listelement .global {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+}
+
+section.settings_lists ul li#listelement .global .logo {
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  border: 1px solid #f5f8ff;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+section.settings_lists ul li#listelement .global .logo #logo {
+  width: 100%;
+  height: 100%;
+}
+
+section.settings_lists ul li#listelement .global input#pseudo {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  font-size: 22px;
+  color: #f5f8ff;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+section.settings_lists ul li#listelement .buttons {
+  margin-left: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+section.settings_lists ul li#listelement .buttons #delete {
+  background: #e74343;
+}
+
+section.settings_lists ul li#listelement .buttons #delete:hover {
+  background: #d42d2d;
+}
+
+@media screen and (min-width: 768px) {
+  section.settings_lists ul.roomslist {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2051,7 +2190,7 @@ section.historique .historique_choices button.historique_choice h2 {
   min-width: 40px;
   border-radius: 100%;
   border: 1px solid #f5f8ff;
-  background: #4530b1;
+  background: #5350d5;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   -webkit-transition: 0.2s;
@@ -2059,7 +2198,7 @@ section.historique .historique_choices button.historique_choice h2 {
 }
 
 .bluebutton:hover {
-  background: #341ea7;
+  background: #6d5cde;
 }
 
 .bluebutton svg {

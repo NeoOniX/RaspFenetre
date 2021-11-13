@@ -19,24 +19,24 @@
     <% let admins = users.filter((user) => user.perms.includes("administrator")); %>
     <% let endusers = users.filter((user) => !(user.perms.includes("administrator"))); %>
     <% if (admins.length > 0) { %>
-    <div class="userstype">
-        <h2>Administrateurs</h2>
-        <ul class="userslist">
-            <% for (let user of admins) { %>
-            <%- include('./userlogincard', { ...user, connected: (user.connected ? true : false) }); %>
-            <% } %>
-        </ul>
-    </div>
+        <div class="userstype">
+            <h2>Administrateurs</h2>
+            <ul class="userslist">
+                <% for (let user of admins) { %>
+                <%- include('./userlogincard', { ...user, connected: (user.connected ? true : false) }); %>
+                <% } %>
+            </ul>
+        </div>
     <% } %>
     <% if (endusers.length > 0) { %>
-    <div class="userstype">
-        <h2>Utilisateurs</h2>
-        <ul class="userslist">
-            <% for (let user of endusers) { %>
-            <%- include('./userlogincard', { ...user, connected: (user.connected ? true : false) }); %>
-            <% } %>
-        </ul>
-    </div>
+        <div class="userstype">
+            <h2>Utilisateurs</h2>
+            <ul class="userslist">
+                <% for (let user of endusers) { %>
+                <%- include('./userlogincard', { ...user, connected: (user.connected ? true : false) }); %>
+                <% } %>
+            </ul>
+        </div>
     <% } %>
 </section>
 <script type="text/javascript" src="../js/login.js"></script>

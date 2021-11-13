@@ -1,0 +1,106 @@
+section.settings_lists {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    h1 {
+        @include GilroyMedium;
+
+        width: 100%;
+        font-size: 22px;
+        border-radius: 15px;
+        color: $grayscale-primary;
+        padding: 10px;
+        background: $contrast-tertiary;
+        text-align: center;
+        box-shadow: 0px 0px 25px rgba($color: #000000, $alpha: 0.15);
+    }
+
+    .userstype {
+        display: grid;
+        row-gap: 15px;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            @include GilroyMedium;
+
+            font-size: 24px;
+            color: $grayscale-primary;
+        }
+    }
+    ul {
+        list-style: none;
+
+        li:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        li#listelement {
+            @include flexBetween;
+
+            height: 80px;
+            border-radius: 20px;
+            padding: 15px;
+            background: $contrast-tertiary;
+            box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.15);
+
+            .global {
+                @include flexMid;
+
+                width: 100%;
+                column-gap: 15px;
+
+                .logo {
+                    min-width: 50px;
+                    max-width: 50px;
+                    height: 50px;
+                    border-radius: 20px;
+                    border: 1px solid $grayscale-primary;
+                    overflow: hidden;
+                    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+
+                    #logo {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                input#pseudo {
+                    @include GilroyMedium;
+
+                    font-size: 22px;
+                    color: $grayscale-primary;
+                    background: none;
+                    border: none;
+                    width: 100%;
+                    cursor: pointer;
+                }
+            }
+            .buttons {
+                margin-left: 15px;
+                display: flex;
+                justify-content: flex-end;
+                column-gap: 10px;
+
+                #delete {
+                    background: $info-red;
+
+                    &:hover {
+                        background: $info-red-hover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive : 
+@media screen and (min-width: 768px) {
+    section.settings_lists ul.roomslist {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

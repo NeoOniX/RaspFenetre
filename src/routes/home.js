@@ -42,6 +42,40 @@ function getRoute (...args) {
         }
     });
 
+    router.get('/settings_members_list', (req, res) => {
+        if (!req.user) {
+            res.redirect('/auth/login');
+            return;
+        }
+
+        if (req.user.perms.includes("administrator")) {
+            let users = User.list();
+            users.filter((user) => user.id == req.user.id)[0].connected = true;
+    
+            res.render('settings_members_list.ejs', { users, user: req.user });
+        } else {
+            res.redirect('/home')
+        }
+    });
+
+    router.get('/settings_rooms_list', (req, res) => {
+        if (!req.user) {
+            res.redirect('/auth/login');
+            return;
+        }
+
+        if (req.user.perms.includes("administrator")) {
+            let users = User.list();
+            users.filter((user) => user.id == req.user.id)[0].connected = true;
+
+            let rooms = Room.list();
+
+            res.render('settings_rooms_list.ejs', { rooms, users, user: req.user });
+        } else {
+            res.redirect('/home')
+        }
+    });
+
     return router;
 }
 

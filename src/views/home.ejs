@@ -6,7 +6,7 @@
         <%- include('./partials/userslogin', {users, loginpagetitle: "Choix du compte"}); %>
         <div class="roomlist">
             <% for(let room of rooms) { %>
-                <%- include('./partials/roomcard', {room}); %>
+                <%- include('./partials/roomcard', { room }); %>
             <% } %>
         </div>
         <%- include('./partials/navbar', { user, active: "home" }); %>
