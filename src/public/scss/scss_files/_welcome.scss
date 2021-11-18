@@ -28,7 +28,7 @@ section.welcome {
     }
 }
 
-#user_creation {
+#user_creation, #room_creation {
     @include flexMidColumn;
 
     row-gap: 15px;

@@ -9,11 +9,8 @@ const favicon = require('serve-favicon');
 const config = require('../config');
 const fetch = require('node-fetch');
 const { join } = require('path');
-const { Scan, AuthPassport, User, Device, Room } = require('./utils');
+const { Scan, AuthPassport, User, Device } = require('./utils');
 let passport = require('passport');
-
-// User
-// let u = User.register("0_logo.png", "Utilisateur", "test");
 
 let lastDevices = Device.list();
 
@@ -85,6 +82,7 @@ Scan.scan(config.network.CIDR, config.network.options)
     app
     .use("/", require('./routes/home')())
     .use("/welcome", require('./routes/welcome')())
+    .use("/settings", require('./routes/settings')(passport))
     .use("/auth", require('./routes/auth')(passport))
     .use("/room", require('./routes/room')())
     .use("/device", require('./routes/device')())

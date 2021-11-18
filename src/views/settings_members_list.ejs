@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('./partials/head', {title: "Paramètres (Liste des comptes)"}); %>
+    <body class="purple need_padding">
+        <%- include('./partials/header', { ...user, backoption: true}); %> 
+        <%- include('./partials/userslogin', {users, loginpagetitle: "Choix du compte"}); %>
+        <section class="settings_lists" id="member">
+            <h1>Liste des comptes</h1>
+            <% let i = 0; %> 
+            <% let admins = users.filter((user) => user.perms.includes("administrator")); %>
+            <% let endusers = users.filter((user) => !(user.perms.includes("administrator"))); %>
+            <% if (admins.length > 0) { %>
+                <div class="userstype">
+                    <h2>Administrateurs</h2>
+                    <ul class="userslist">
+                        <% for (let user of admins) { %>
+                            <%- include('./partials/user_list_card', { i, ...user }); %>
+                            <% i++; %> 
+                        <% } %>
+                    </ul>
+                </div>
+            <% } %>
+            <% if (endusers.length > 0) { %>
+                <div class="userstype">
+                    <h2>Utilisateurs</h2>
+                    <ul class="userslist">
+                        <% for (let user of endusers) { %>
+                            <%- include('./partials/user_list_card', { ...user }); %>
+                        <% } %>
+                    </ul>
+                </div>
+            <% } %>
+        </section>
+        <%- include('./partials/add_update_member'); %> <%- include('./partials/navbar', { active: "settings" }); %>
+        <script type="text/javascript" src="js/home.js"></script>
+        <script type="text/javascript" src="../js/settings_lists.js"></script>
+    </body>
+</html>

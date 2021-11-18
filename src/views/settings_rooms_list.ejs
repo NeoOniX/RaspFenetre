@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('./partials/head', {title: "Paramètres (Liste des salles)"}); %>
+    <body class="purple need_padding">
+        <%- include('./partials/header', { ...user, backoption: true}); %> 
+        <%- include('./partials/userslogin', {users, loginpagetitle: "Choix du compte"}); %>
+        <section class="settings_lists" id="room">
+            <h1>Liste des salles</h1>
+            <ul class="roomslist">
+                <% for (let room of rooms) { %>
+                    <%- include('./partials/room_list_card', { ...room }); %>
+                <% } %>
+            </ul>
+        </section>
+        <%- include('./partials/add_update_room'); %> <%- include('./partials/navbar', { active: "settings" }); %>
+        <script type="text/javascript" src="js/home.js"></script>
+        <script type="text/javascript" src="../js/settings_lists.js"></script>
+    </body>
+</html>

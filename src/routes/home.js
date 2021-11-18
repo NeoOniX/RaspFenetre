@@ -26,22 +26,6 @@ function getRoute (...args) {
         res.render('home.ejs', { rooms, users, user: req.user });
     });
 
-    router.get('/settings', (req, res) => {
-        if (!req.user) {
-            res.redirect('/auth/login');
-            return;
-        }
-
-        if (req.user.perms.includes("administrator")) {
-            let users = User.list();
-            users.filter((user) => user.id == req.user.id)[0].connected = true;
-    
-            res.render('settings.ejs', { users, user: req.user });
-        } else {
-            res.redirect('/home')
-        }
-    });
-
     return router;
 }
 
