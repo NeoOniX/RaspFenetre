@@ -8,9 +8,9 @@
     </button>
     <form action="/auth/register" id="user_creation" method="POST" enctype="multipart/form-data">
         <input style="display:none;" name="id" readonly></input>
-        <input type="text" name="name" placeholder="Pseudonyme" required/>
+        <input type="text" name="name" placeholder="Pseudonyme" <%= edit ? "" : "required" %> />
         <div class="input">
-            <input type="password" name="pass" placeholder="Mot de passe" required/>
+            <input type="password" name="pass" placeholder="Mot de passe" <%= edit ? "" : "required" %> />
             <span id="show_password">
                 <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                     <path

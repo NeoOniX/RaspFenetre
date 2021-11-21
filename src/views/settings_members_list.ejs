@@ -25,14 +25,15 @@
                     <h2>Utilisateurs</h2>
                     <ul class="userslist">
                         <% for (let user of endusers) { %>
-                            <%- include('./partials/user_list_card', { ...user }); %>
+                            <%- include('./partials/user_list_card', { i, ...user }); %>
+                            <% i++; %> 
                         <% } %>
                     </ul>
                 </div>
             <% } %>
         </section>
-        <%- include('./partials/add_update_member'); %> <%- include('./partials/navbar', { active: "settings" }); %>
-        <script type="text/javascript" src="js/home.js"></script>
+        <%- include('./partials/add_update_member', { edit: true }); %> <%- include('./partials/navbar', { active: "settings" }); %>
+        <script type="text/javascript" src="../js/home.js"></script>
         <script type="text/javascript" src="../js/settings_lists.js"></script>
     </body>
 </html>

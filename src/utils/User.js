@@ -79,6 +79,15 @@ class User {
         });
     }
 
+    static edit (user) {
+        return new Promise((resolve, reject) => {
+            let users = this.list();
+            users = users.map(u => u.id == user.id ? user : u);
+            writeFileSync(join(__dirname, "../../store/users.json"), stringify(users, null, 4));
+            resolve(user);
+        })
+    }
+
     static delete (id) {
         if (id.id) id=id.id;
         let users = this.list();

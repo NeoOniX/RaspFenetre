@@ -1,7 +1,7 @@
 const IDGenerator = require('./IDGenerator');
 const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
-const { Device } = require('.');
+const Device = require('./Device');
 const { parse, stringify } = JSON;
 
 class Room {
@@ -40,11 +40,20 @@ class Room {
         });
     }
 
+    static edit (room) {
+        return new Promise((resolve, reject) => {
+            let rooms = this.list();
+            rooms = rooms.map(r => r.id == room.id ? room : r);
+            writeFileSync(join(__dirname, "../../store/rooms.json"), stringify(rooms, null, 4));
+            resolve(room);
+        })
+    }
+
     static delete (id) {
         if (id.id) id=id.id;
         let rooms = this.list();
         rooms = rooms.filter((room) => room.id != id);
-        let devices = Device.list().filter((device) => device.room == room.id);
+        let devices = Device.list().filter((device) => device.room == id);
         for (let device of devices) {
             device.room = "0";
         }

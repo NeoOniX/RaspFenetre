@@ -1,6 +1,8 @@
 const history = {
     values: document.querySelector(".historique_lists .historique_list#values"),
-    errors: document.querySelector(".historique_lists .historique_list#errors")
+    errors: document.querySelector(".historique_lists .historique_list#errors"),
+    values_count: document.querySelector(".historique_choices #values #logs_number p"),
+    errors_count: document.querySelector(".historique_choices #errors #logs_number p"),
 }
 
 const device = {
@@ -31,22 +33,15 @@ function roomData(id) {
         </li>
         `;
 
+        let values = [];
+        let errors = [];
+
         for (let device of data.devices) {
             for (let log of device.logs.filter((log) => log.type == "data")) {
-                histval += `
-                    <li>
-                        <p>${device.name} : ${log.value}°C</p>
-                        <span>16:09:34</span>
-                    </li>
-                `;
+                values.push({ device, log });
             }
             for (let log of device.logs.filter((log) => log.type == "error")) {
-                histerr += `
-                    <li>
-                        <p>${device.name} : ${log.error}°C</p>
-                        <span>16:09:34</span>
-                    </li>
-                `;
+                errors.push({ device, log });
             }
             dev += `
             <li class="device_element">
@@ -55,6 +50,31 @@ function roomData(id) {
                     <p id="device_value">${device.value}</p>
                 </a>
             </li>
+            `;
+        }
+
+        values.sort((a,b) => a.log.time - b.log.time);
+        errors.sort((a,b) => a.log.time - b.log.time);
+
+        for (let val of values) {
+            let d = new Date();
+            d.setTime(val.log.time);
+            histval += `
+                <li>
+                    <p>${val.device.name} : ${val.log.value}</p>
+                    <span>${d.toTimeString().split(" ")[0]}</span>
+                </li>
+            `;
+        }
+
+        for (let err of errors) {
+            let d = new Date();
+            d.setTime(err.log.time);
+            histerr += `
+                <li>
+                    <p>${err.device.name} : ${err.log.value}</p>
+                    <span>${d.toTimeString().split(" ")[0]}</span>
+                </li>
             `;
         }
 
@@ -71,30 +91,42 @@ function deviceData(id) {
         let histval = "";
         let histerr = "";
 
-        for (let log of device.logs.filter((log) => log.type == "data")) {
+        for (let log of data.logs.filter((log) => log.type == "data")) {
+            let d = new Date();
+            d.setTime(log.time);
             histval += `
                 <li>
-                    <p>${device.name} : ${log.value}°C</p>
-                    <span>16:09:34</span>
+                    <p>${log.value}</p>
+                    <span>${d.toTimeString().split(" ")[0]}</span>
                 </li>
             `;
         }
-        for (let log of device.logs.filter((log) => log.type == "error")) {
+        for (let log of data.logs.filter((log) => log.type == "error")) {
+            let d = new Date();
+            d.setTime(log.time);
             histerr += `
                 <li>
-                    <p>${device.name} : ${log.error}°C</p>
-                    <span>16:09:34</span>
+                    <p>${log.value}</p>
+                    <span>${d.toTimeString().split(" ")[0]}</span>
                 </li>
             `;
         }
         
         history.values.innerHTML = histval;
         history.errors.innerHTML = histerr;
+        history.values_count.innerHTML = data.logs.filter((log) => log.type == "data").length;
+        history.errors_count.innerHTML = data.logs.filter((log) => log.type == "error").length;
         
         device.name.innerHTML = data.name;
         device.value.innerHTML = data.value;
-        device.type.innerHTML = data.type;
-        device.room.innerHTML = data.room;
+        device.type.innerHTML = `
+            <span><p>Type</p></span>
+            <h3>${data.type}</h3>
+        `;
+        device.room.innerHTML = `
+            <span><p>Salle</p></span>
+            <h3>${data.room}</h3>
+        `;
         
         let battery = "";
         if (data.battery == "n/a") {

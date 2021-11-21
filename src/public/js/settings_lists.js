@@ -38,6 +38,7 @@ if (document.querySelector("section.settings_lists#room")) {
 
     // Pop-up Inputs :
     let updateRoomSectionName = document.querySelector("section.settings_add_update#room form input[name='room']");
+    let updateRoomSectionId = document.querySelector("section.settings_add_update#room form input[name='id']");
 
     updateRoomEditBtns.forEach((updateRoomEditBtn) =>
         updateRoomEditBtn.addEventListener("click", () => {
@@ -45,7 +46,7 @@ if (document.querySelector("section.settings_lists#room")) {
             let roomId = updateRoomEditBtn.parentElement.parentElement.querySelector(".global input[name='id']").value;
 
             // Attribute values :
-            updateRoomSectionName.value = roomName;
+            [updateRoomSectionName.value, updateRoomSectionId.value] = [roomName, roomId];
 
             updateRoomSection.classList.add("active");
         })

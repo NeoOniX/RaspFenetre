@@ -12,29 +12,38 @@ const { join } = require('path');
 const { Scan, AuthPassport, User, Device } = require('./utils');
 let passport = require('passport');
 
+// List of all devices already registered
 let lastDevices = Device.list();
 
 // IP Scan
 Scan.scan(config.network.CIDR, config.network.options)
 .then((ips) => {
     for (let ip of ips) {
+        // Try to identify the device
         Device.identify(ip)
         .then((identity) => {
+            // If the device is already registered and valid :
             if (identity.found) {
+                // Remove it from the list
                 lastDevices = lastDevices.filter((device) => device.id != identity.device.id);
             } else {
+                // If it isn't already registered, register it :
+                // Get infos about the device
                 let url = new URL(`http://${ip}/info`);
                 fetch(url).then((res) => {
                     return res.json();
                 }).then((data) => {
+                    // Register the device
                     Device.register(ip, data.type, data.type);
                 }).catch((err) => { });
             }
         });
     }
 }).then(() => {
+    // All the remaining devices of the list are not communicating anymore
     for (let device of lastDevices) {
-        Device.log(device.ip, { type: "error", value: "Communication impossible"})
+        // Add a new log to indicate the communciation error
+        Device.log(device.ip, { type: "error", value: "Communication impossible"});
     }
 }).then(() => {
     // Local Passport

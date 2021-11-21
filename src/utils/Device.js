@@ -72,6 +72,8 @@ class Device {
         let devices = this.list();
         let device = devices.filter((device) => device.ip == ip).at(-1);
 
+        log.time = Date.now();
+
         if (device) {
             device.logs.push(log);
             writeFileSync(join(__dirname, "../../store/devices.json"), stringify(devices, null, 4));

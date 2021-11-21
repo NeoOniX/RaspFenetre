@@ -6,7 +6,8 @@
             />
         </svg>
     </button>
-    <form id="room_creation" method="POST" enctype="multipart/form-data">
+    <form action="/settings/rooms" id="room_creation" method="POST">
+        <input style="display:none;" name="id" readonly></input>
         <input type="text" name="room" placeholder="Nom de la salle" required/>
         <div class="confirm">
             <button type="submit">Confirmer</button>

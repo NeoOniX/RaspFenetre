@@ -11,7 +11,7 @@ function getRoute (...args) {
         res.render('welcome', { formaction: "/welcome" });
     });
 
-    // Administrator account POST route
+    // Administrator account registration route
     router.post('/', (req, res) => {
         // Create an empty User object
         let user = { icon: "base_icon.png" };
@@ -40,11 +40,12 @@ function getRoute (...args) {
                 let fstream = createWriteStream(join(__dirname, '../public/img/', fieldname, fname));
 
                 // Set the user icon property as the location of the file
-                user.icon = `/public/img/${fieldname}/${fname}`;
+                user.icon = fname;
 
                 // Write the uploaded icon through the file writing stream
                 file.pipe(fstream);
             } else {
+                // If no file is provided, we need to skip by doing this
                 file.resume();
             }
         });

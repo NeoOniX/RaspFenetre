@@ -33,7 +33,7 @@
                 <a href="./settings/rooms" id="setting">Liste des salles</a>
             </article>
         </section>
-        <%- include('./partials/add_update_member'); %> <%- include('./partials/add_update_room'); %> <%- include('./partials/navbar', { active: "settings" }); %>
+        <%- include('./partials/add_update_member', { edit: false }); %> <%- include('./partials/add_update_room'); %> <%- include('./partials/navbar', { active: "settings" }); %>
         <script type="text/javascript" src="js/home.js"></script>
         <script type="text/javascript" src="../js/settings.js"></script>
     </body>
