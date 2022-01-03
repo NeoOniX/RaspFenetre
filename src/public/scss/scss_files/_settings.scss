@@ -127,7 +127,7 @@ section.settings {
                     font-size: 18px;
                     color: $grayscale-primary;
                 }
-                input[type="checkbox"] {
+                input[type='checkbox'] {
                     appearance: none;
                     position: relative;
                     max-width: 27px;
@@ -141,7 +141,7 @@ section.settings {
                     &::before {
                         @include absoluteCenter;
 
-                        content: "";
+                        content: '';
                         mask: url('data:image/svg+xml; charset=utf-8, <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><path d="M11.4911 0.25L6.5 5.24107L1.50893 0.25L0.25 1.50893L5.24107 6.5L0.25 11.4911L1.50893 12.75L6.5 7.75893L11.4911 12.75L12.75 11.4911L7.75893 6.5L12.75 1.50893L11.4911 0.25Z" /></svg>')
                             no-repeat 50% 50%;
                         mask-size: cover;
@@ -175,7 +175,7 @@ section.settings {
     }
 }
 
-// Responsive : 
+// Responsive :
 @media screen and (min-width: 768px) {
     section.settings_add_update {
         left: 105px;

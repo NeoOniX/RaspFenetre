@@ -972,7 +972,7 @@ section.sensor .informations .info#type span {
   left: auto;
 }
 
-section.sensor .informations .info#room {
+section.sensor .informations .info#room, section.sensor .informations .info#room-admin {
   padding: 15px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -980,10 +980,24 @@ section.sensor .informations .info#room {
   min-height: 60px;
 }
 
-section.sensor .informations .info#room h3 {
+section.sensor .informations .info#room h3, section.sensor .informations .info#room-admin h3 {
   font-family: "Gilroy Medium";
   font-weight: 500;
   font-size: 22px;
+}
+
+section.sensor .informations .info#room select, section.sensor .informations .info#room-admin select {
+  font-family: "Gilroy Medium";
+  font-weight: 500;
+  width: 100%;
+  font-size: 22px;
+  background: none;
+  color: #f5f8ff;
+  border: none;
+}
+
+section.sensor .informations .info#room select option, section.sensor .informations .info#room-admin select option {
+  background: #5350d5;
 }
 
 section.sensor .informations .info span {
@@ -1240,7 +1254,7 @@ section.settings #settings_element #setting:hover {
   color: #f5f8ff;
 }
 
-.settings_add_update .perms ul#permissions li input[type="checkbox"] {
+.settings_add_update .perms ul#permissions li input[type='checkbox'] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1255,13 +1269,13 @@ section.settings #settings_element #setting:hover {
   transition: 0.2s;
 }
 
-.settings_add_update .perms ul#permissions li input[type="checkbox"]::before {
+.settings_add_update .perms ul#permissions li input[type='checkbox']::before {
   position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  content: "";
+  content: '';
   -webkit-mask: url('data:image/svg+xml; charset=utf-8, <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><path d="M11.4911 0.25L6.5 5.24107L1.50893 0.25L0.25 1.50893L5.24107 6.5L0.25 11.4911L1.50893 12.75L6.5 7.75893L11.4911 12.75L12.75 11.4911L7.75893 6.5L12.75 1.50893L11.4911 0.25Z" /></svg>') no-repeat 50% 50%;
           mask: url('data:image/svg+xml; charset=utf-8, <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg"><path d="M11.4911 0.25L6.5 5.24107L1.50893 0.25L0.25 1.50893L5.24107 6.5L0.25 11.4911L1.50893 12.75L6.5 7.75893L11.4911 12.75L12.75 11.4911L7.75893 6.5L12.75 1.50893L11.4911 0.25Z" /></svg>') no-repeat 50% 50%;
   -webkit-mask-size: cover;
@@ -1273,20 +1287,20 @@ section.settings #settings_element #setting:hover {
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.settings_add_update .perms ul#permissions li input[type="checkbox"]:hover {
+.settings_add_update .perms ul#permissions li input[type='checkbox']:hover {
   background: #d42d2d;
 }
 
-.settings_add_update .perms ul#permissions li input[type="checkbox"]:hover:checked {
+.settings_add_update .perms ul#permissions li input[type='checkbox']:hover:checked {
   background: #2ccf63;
 }
 
-.settings_add_update .perms ul#permissions li input[type="checkbox"]:checked {
+.settings_add_update .perms ul#permissions li input[type='checkbox']:checked {
   background: #43e77a;
   border: 1px solid #43e77a;
 }
 
-.settings_add_update .perms ul#permissions li input[type="checkbox"]:checked::before {
+.settings_add_update .perms ul#permissions li input[type='checkbox']:checked::before {
   -webkit-mask: url('data:image/svg+xml; charset=utf-8, <svg width="17" height="13" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg"><path d="M16.7262 1.56228L5.53849 12.75L0.273682 7.48519L1.58596 6.17291L5.53849 10.1161L15.4139 0.25L16.7262 1.56228Z" /></svg>') no-repeat 50% 50%;
           mask: url('data:image/svg+xml; charset=utf-8, <svg width="17" height="13" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg"><path d="M16.7262 1.56228L5.53849 12.75L0.273682 7.48519L1.58596 6.17291L5.53849 10.1161L15.4139 0.25L16.7262 1.56228Z" /></svg>') no-repeat 50% 50%;
   width: 16.45px;

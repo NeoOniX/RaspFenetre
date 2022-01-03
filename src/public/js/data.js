@@ -1,30 +1,32 @@
 let device = {
-    name: document.querySelector(".sensor .top h1"),
-    value: document.querySelector(".informations .global .info h3"),
-    battery: document.querySelector(".informations .global #battery"),
-    type: document.querySelector(".informations #type"),
-    room: document.querySelector(".informations #room")
-}
+    name: document.querySelector('.sensor .top h1'),
+    value: document.querySelector('.informations .global .info h3'),
+    battery: document.querySelector('.informations .global #battery'),
+    type: document.querySelector('.informations #type'),
+    room: document.querySelector('.informations #room'),
+};
 
 let room = {
-    name: document.querySelector(".room .top h1"),
-    devices: document.querySelector(".sensors .devices_list")
-}
+    name: document.querySelector('.room .top h1'),
+    devices: document.querySelector('.sensors .devices_list'),
+};
 
 function roomData(id) {
-    fetch(`/api/room/${id}`).then((res) => {
-        return res.json();
-    }).then((data) => {
-        room.name.innerHTML = data.name;
+    fetch(`/api/room/${id}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            room.name.innerHTML = data.name;
 
-        let dev = `
+            let dev = `
         <li class="sensors_number">
             <p>${data.devicescount} Capteur${data.devicescount > 1 ? 's' : ''}</p>
         </li>
         `;
 
-        for (let device of data.devices) {
-            dev += `
+            for (let device of data.devices) {
+                dev += `
             <li class="device_element">
                 <a href="/device/${device.id}">
                     <p id="device_name">${device.name}</p>
@@ -32,43 +34,45 @@ function roomData(id) {
                 </a>
             </li>
             `;
-        }
+            }
 
-        room.devices.innerHTML = dev;
-    });
+            room.devices.innerHTML = dev;
+        });
 }
 
 function deviceData(id) {
-    fetch(`/api/device/${id}`).then((res) => {
-        return res.json();
-    }).then((data) => {
-        device.name.innerHTML = data.name;
-        device.value.innerHTML = data.value;
-        device.type.innerHTML = `   
+    fetch(`/api/device/${id}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            device.name.innerHTML = data.name;
+            device.value.innerHTML = data.value;
+            device.type.innerHTML = `   
             <span><p>Type</p></span>
             <h3>${data.type}</h3>
             `;
-        device.room.innerHTML = `   
-            <span><p>Salle</p></span>
-            <h3>${data.room}</h3>
-            `;
+            if (device.room) {
+                device.room.innerHTML = `   
+                    <span><p>Salle</p></span>
+                    <h3>${data.room}</h3>
+                `;
+            }
 
-        
-        
-        let battery = "";
-        if (data.battery == "n/a") {
-            battery = `<h3 class="no_battery">Aucune</h3>`;
-        } else if (data.battery >= 60) {
-            battery = `<h3 id="green">${data.battery}%</h3>`;
-        } else if (data.battery >= 20) {
-            battery = `<h3 id="orange">${data.battery}%</h3>`;
-        } else if (data.battery) {
-            battery = `<h3 id="red">${data.battery}%</h3>`;
-        }
+            let battery = '';
+            if (data.battery == 'n/a') {
+                battery = `<h3 class="no_battery">Aucune</h3>`;
+            } else if (data.battery >= 60) {
+                battery = `<h3 id="green">${data.battery}%</h3>`;
+            } else if (data.battery >= 20) {
+                battery = `<h3 id="orange">${data.battery}%</h3>`;
+            } else if (data.battery) {
+                battery = `<h3 id="red">${data.battery}%</h3>`;
+            }
 
-        device.battery.innerHTML = `
+            device.battery.innerHTML = `
         <span><p>Batterie</p></span>
         ${battery}
         `;
-    });
+        });
 }

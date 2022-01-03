@@ -2,8 +2,8 @@
 <html lang="fr">
     <%- include('./partials/head', {title: "Accueil"}); %>
     <body class="purple need_padding">
-        <%- include('./partials/header', { ...user, backoption: true}); %>
-        <%- include('./partials/userslogin', {loginpagetitle: "Choix du compte"}); %>
+        <%- include('./partials/header', { ...user, backoption: true}); %> <%- include('./partials/userslogin', {loginpagetitle: "Choix du compte"});
+        %>
         <section class="sensor">
             <div class="top">
                 <h1>Chargement...</h1>
@@ -42,20 +42,29 @@
                     <span><p>Type</p></span>
                     <h3>Chargement...</h3>
                 </div>
+                <% if (user.perms.includes("administrator")) { %>
+                <div class="info" id="room-admin">
+                    <span><p>Salle</p></span>
+                    <select name="room" id="room-selector">
+                        <option value="1">Salle N°1</option>
+                        <option value="2">Salle N°2</option>
+                    </select>
+                </div>
+                <% } else { %>
                 <div class="info" id="room">
                     <span><p>Salle</p></span>
                     <h3>Chargement...</h3>
                 </div>
+                <% } %>
             </div>
         </section>
-        <%- include('./partials/historique'); %>
-        <%- include('./partials/navbar', { user, active: "home" }); %>
+        <%- include('./partials/historique'); %> <%- include('./partials/navbar', { user, active: "home" }); %>
         <script type="text/javascript" src="../js/room.js"></script>
         <script type="text/javascript" src="../js/data.js"></script>
         <script>
-            deviceData("<%- id %>");
+            deviceData('<%- id %>');
             setInterval(() => {
-                deviceData("<%- id %>");
+                deviceData('<%- id %>');
             }, 5000);
         </script>
     </body>
