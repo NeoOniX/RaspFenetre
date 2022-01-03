@@ -1,5 +1,5 @@
 const express = require('express');
-const { Device, User } = require('../utils');
+const { Device, User, Room } = require('../utils');
 
 let router = express.Router();
 
@@ -20,7 +20,7 @@ function getRoute (...args) {
             // Prepare data and show the device page
             let users = User.list();
             users.filter((user) => user.id = req.user.id)[0].connected = true;
-            res.render('device.ejs', { users, user: req.user, id: device.id });
+            res.render('device.ejs', { rooms: Room.list(), users, user: req.user, device });
         } else {
             res.render('backpage.ejs');
         }

@@ -1,7 +1,7 @@
 const IDGenerator = require('./IDGenerator');
+const Device = require('./Device');
 const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
-const Device = require('./Device');
 const { parse, stringify } = JSON;
 
 class Room {
@@ -33,7 +33,7 @@ class Room {
                 id,
                 name
             }
-
+            
             rooms.push(room);
             writeFileSync(join(__dirname, "../../store/rooms.json"), stringify(rooms, null, 4));
             resolve(room);

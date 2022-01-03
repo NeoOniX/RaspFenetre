@@ -42,20 +42,37 @@
                     <span><p>Type</p></span>
                     <h3>Chargement...</h3>
                 </div>
-                <div class="info" id="room">
-                    <span><p>Salle</p></span>
-                    <h3>Chargement...</h3>
-                </div>
+                <% if (user.perms.includes("administrator")) { %>
+                    <div class="info" id="room-admin">
+                        <span><p>Salle</p></span>
+                        <select name="room" id="room-selector">
+                            <% for( let room of rooms ) { %>
+                                <option <% if (device.room == room.id) { %> selected="selected" <% } %> value="<%= room.id %>"><%= room.name %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                <% } else { %>
+                    <div class="info" id="room">
+                        <span><p>Salle</p></span>
+                        <h3>Chargement...</h3>
+                    </div>
+                <% } %>
             </div>
         </section>
         <%- include('./partials/historique'); %>
         <%- include('./partials/navbar', { user, active: "home" }); %>
         <script type="text/javascript" src="../js/room.js"></script>
+        <% if (user.perms.includes("administrator")) { %>
+        <script type="text/javascript" src="../js/room-admin.js"></script>
+        <script>
+            init("<%- device.id %>");
+        </script>
+        <% } %> 
         <script type="text/javascript" src="../js/data.js"></script>
         <script>
-            deviceData("<%- id %>");
+            deviceData("<%- device.id %>");
             setInterval(() => {
-                deviceData("<%- id %>");
+                deviceData("<%- device.id %>");
             }, 5000);
         </script>
     </body>

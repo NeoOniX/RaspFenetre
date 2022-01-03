@@ -42,6 +42,15 @@ class Device {
             resolve(device);
         });
     }
+    
+    static edit (device) {
+        return new Promise((resolve, reject) => {
+            let devices = this.list();
+            devices = devices.map(d => d.id == device.id ? device : d);
+            writeFileSync(join(__dirname, "../../store/devices.json"), stringify(devices, null, 4));
+            resolve(device);
+        })
+    }
 
     static identify (ip) {
         return new Promise((resolve, reject) => {

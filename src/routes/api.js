@@ -60,6 +60,25 @@ function getRoute (...args) {
         res.status(200).send(JSON.stringify(ret)).end();
     });
 
+    // Device edit route
+    router.post('/device/:deviceid', (req, res) => {
+        // Deny access if user isn't logged in
+        if (!req.user) {
+            res.redirect('/auth/login');
+            return;
+        }
+
+        // Deny access if user isn't an administrator
+        if (!req.user.perms.includes("administrator")) {
+            res.redirect('/home');
+            return;
+        }
+
+        let device = Device.deserialize(req.params.deviceid);
+        device.room = req.body.roomid;
+        Device.edit(device);
+    });
+
     return router;
 }
 

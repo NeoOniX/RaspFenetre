@@ -65,7 +65,8 @@ section.sensor {
                     left: auto;
                 }
             }
-            &#room {
+            &#room,
+            &#room-admin {
                 padding: 15px;
                 justify-content: space-between;
                 min-height: 60px;
@@ -74,6 +75,19 @@ section.sensor {
                     @include GilroyMedium;
 
                     font-size: 22px;
+                }
+                select {
+                    @include GilroyMedium;
+
+                    width: 100%;
+                    font-size: 22px;
+                    background: none;
+                    color: $grayscale-primary;
+                    border: none;
+
+                    option {
+                        background: $contrast-tertiary;
+                    }
                 }
             }
 
