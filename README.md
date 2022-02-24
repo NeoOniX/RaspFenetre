@@ -38,4 +38,4 @@ RaspFenêtre stocke localement les données des salles, des utilisateurs et des 
 # Crédits
 Ce git vous est proposé par :
 - <img width="25px" src="docs/img/onix.png"> [@NeoOniX](https://github.com/NeoOniX)
-- <img width="25px" src="docs/img/assa.png"> [@AssADev](https://github.com/AssADev)
+- <img width="25px" src="docs/img/assa.jpg"> [@AssADev](https://github.com/AssADev)
