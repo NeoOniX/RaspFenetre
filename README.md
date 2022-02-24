@@ -1,7 +1,7 @@
 # RaspFenêtre
 ### Qu'est-ce que c'est ?
 
-`RaspFenêtre` est un système de domotique IOT, basé sur des microcontrolleurs Wemos D1 Mini et une Raspberry Pi 4.  
+`RaspFenêtre` est un système de domotique IOT, basé sur des microcontrôleurs Wemos D1 Mini et une Raspberry Pi 4.  
 Ce git contient essentiellement les fichiers du serveur web NodeJS hébergé sur la Raspberry Pi 4, utilisée à titre de concentrateur au sein de l'architecture.
 
 # Table of Contents
