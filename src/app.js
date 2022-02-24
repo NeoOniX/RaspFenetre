@@ -101,7 +101,7 @@ Scan.scan(config.network.CIDR, config.network.options)
     });
 
     // Server start
-    let server = app.listen(8080, () => {
+    let server = app.listen(80, () => {
         console.log(`Server started on port ${server.address().port}`);
     });
 
